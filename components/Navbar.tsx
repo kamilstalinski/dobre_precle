@@ -19,24 +19,27 @@ const Navbar = () => {
       <div className='nav__links h-full'>
         <ul className='h-full flex gap-11 lg:gap-6 items-end text-[#971C25] font-bold'>
           <li className='nav__link'>
-            <Link href=''>AKTUALNOŚCI</Link>
+            <Link href='/'>AKTUALNOŚCI</Link>
           </li>
           <li className='nav__link'>
-            <Link href=''>O NAS</Link>
+            <Link href='/o-nas'>O NAS</Link>
           </li>
           <li className='nav__link'>
-            <Link href=''>MENU</Link>
+            <Link href='menu'>MENU</Link>
           </li>
           <li className='nav__link'>
-            <Link href=''>LOKALIZACJE</Link>
+            <Link href='lokalizacje'>LOKALIZACJE</Link>
           </li>
           <li className='nav__link'>
-            <Link href=''>KONTAKT</Link>
+            <Link href='kontakt'>KONTAKT</Link>
           </li>
         </ul>
       </div>
       <div className='nav__social-links h-full flex items-end gap-2'>
-        <Link className='nav__social-link' href=''>
+        <Link
+          className='nav__social-link'
+          href='https://www.facebook.com/dobreprecle'
+          target='_blank'>
           <Image
             src='/FB_icon.svg'
             alt='Facebook logo'
@@ -44,7 +47,10 @@ const Navbar = () => {
             height={26}
           />
         </Link>
-        <Link className='nav__social-link' href=''>
+        <Link
+          className='nav__social-link'
+          href='https://www.instagram.com/dobreprecle/'
+          target='_blank'>
           <Image
             src='/IG_icon.svg'
             alt='Facebook logo'
