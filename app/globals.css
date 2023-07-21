@@ -55,7 +55,7 @@
 /* MAIN PAGE */
 .background {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 .background::before {
@@ -66,7 +66,7 @@
   width: 100%;
   height: 100%;
   background-image: url("/precle.png");
-  background-size: cover;
+  background-size: 120%;
   background-position: center;
   z-index: -1;
 }

@@ -23,6 +23,11 @@ module.exports = {
         "2xl": "6rem",
       },
     },
+    extend: {
+      colors: {
+        "text-color": "#971C25",
+      },
+    },
   },
   plugins: [],
 };

@@ -17,15 +17,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${lato.className} container mx-auto h-32 w-full flex justify-between items-center px-4 pb-4`}>
+      className={`${lato.className} container mx-auto h-32 w-full flex justify-between items-center px-[4%] pb-4`}>
       <div className='nav__logo h-full flex items-end md:items-center relative'>
         <Link href='/'>
-          <div className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-50'>
-            <Image
-              src='/Dobre_precle_logo_2.svg'
-              alt='Dobre Precle logo'
-              fill
-            />
+          <div className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-[100]'>
+            <Image src='/Dobre_precle_logo.svg' alt='Dobre Precle logo' fill />
           </div>
         </Link>
       </div>
@@ -74,7 +70,7 @@ const Navbar = () => {
       </div>
       <Hamburger isActive={isActive} handleActive={handleActive} />
       <div
-        className={`nav__mobilemenu w-3/4 h-screen bg-[#FBE8CF] absolute top-0 transition-all duration-300 ${
+        className={`nav__mobilemenu z-[9999] w-3/4 h-screen bg-[#FBE8CF] absolute top-0 transition-all duration-300 ${
           isActive ? "left-0" : "-left-full"
         }`}>
         <div className='nav__links-mobile px-4 pt-[130px] text-lg'>
