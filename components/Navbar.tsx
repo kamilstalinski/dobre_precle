@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className='nav__logo h-full flex items-end md:items-center relative'>
         <Link href='/'>
           <div className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-50'>
-            <Image src='/dobre_precle_logo.svg' alt='Dobre Precle logo' fill />
+            <img src='/dobre_precle_logo.svg' alt='Dobre Precle logo' />
           </div>
         </Link>
       </div>
