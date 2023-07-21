@@ -34,3 +34,20 @@
   opacity: 1;
   bottom: -4px;
 }
+
+.nav__hamburger,
+.nav__mobilemenu {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  .nav__links,
+  .nav__social-links {
+    display: none;
+  }
+
+  .nav__hamburger,
+  .nav__mobilemenu {
+    display: block;
+  }
+}
