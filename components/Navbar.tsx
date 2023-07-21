@@ -19,7 +19,11 @@ const Navbar = () => {
     <nav
       className={`${lato.className} container mx-auto h-32 w-full flex justify-between items-center px-[4%] pb-4`}>
       <div className='nav__logo h-full flex items-end md:items-center relative'>
-        <Link href='/'></Link>
+        <Link
+          className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-[99999]'
+          href='/'>
+          <Image src='/logo.svg' alt='Dobre Precle logo' fill />
+        </Link>
       </div>
       <div className='nav__links h-full'>
         <ul className='h-full flex gap-11 lg:gap-6 items-end text-[#971C25] font-bold'>
@@ -63,9 +67,6 @@ const Navbar = () => {
             height={26}
           />
         </Link>
-      </div>
-      <div className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-[100]'>
-        <Image src='/Dobre_precle_logo.svg' alt='Dobre Precle logo' fill />
       </div>
       <Hamburger isActive={isActive} handleActive={handleActive} />
       <div

@@ -66,7 +66,7 @@
   width: 100%;
   height: 100%;
   background-image: url("/precle.png");
-  background-size: 120%;
+  background-size: cover;
   background-position: center;
   z-index: -1;
 }
