@@ -7,7 +7,7 @@ const Hero = () => {
         <h1 className='text-[100px] lg:text-[80px] md:text-[40px] text-white text-center leading-tight'>
           Czujesz nasze
           <br />
-          <span className='text-[#FBE8CF]'>PRECLOWE LOVE?</span>
+          <span className='text-[#FBE8CF] font-bold'>PRECLOWE LOVE?</span>
         </h1>
         <CustomButton text='CZYTAJ WIĘCEJ' />
       </div>

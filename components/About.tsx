@@ -22,9 +22,9 @@ const About = () => {
           width={617}
           height={938}
         />
-        <h2 className='text-[80px]'>O nas</h2>
-        <p className='text-[30px]'>DOBRE PRECLE - PRECLE DOBRE Z NATURY</p>
-        <p className='text-[20px] w-[62%] mt-6'>
+        <h2 className='text-[75px] font-bold'>O nas</h2>
+        <p className='text-[25px]'>DOBRE PRECLE - PRECLE DOBRE Z NATURY</p>
+        <p className='text-[16px] w-[62%] mt-6'>
           Jak powstały DOBRE PRECLE? Dawno, dawno temu nasz właściciel
           podróżował po różnych zakątkach świata, takich jak Bawaria, Francja i
           Włochy - to właśnie tam odkrył ten DOBRY i wyjątkowy przysmak.
@@ -34,14 +34,14 @@ const About = () => {
             className='z-[100]'
             src='/kanapka_ser.png'
             alt='kanapka z serem'
-            width={375}
+            width={370}
             height={1}
           />
           <Image
             className='-translate-x-10 translate-y-10'
             src='/precle_piec.png'
             alt='precle z pieca'
-            width={375}
+            width={370}
             height={169}
           />
         </div>
