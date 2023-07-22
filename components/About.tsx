@@ -14,7 +14,7 @@ const About = () => {
           }}
         />
       </div>
-      <div className='container mx-auto pl-[4%] text-text-color relative flex justify-between'>
+      <div className='container mx-auto pl-[4%] pr-0 md:pr-2 text-text-color relative flex justify-between'>
         <div className='w-1/2 md:w-full'>
           <h2 className='text-[75px] md:text-[50px] font-bold'>O nas</h2>
           <p className='text-[25px] md:text-[18px]'>
@@ -28,7 +28,7 @@ const About = () => {
           <div className='flex mt-8 md:flex'>
             <div className='md:w-1/2'>
               <Image
-                className='z-[100]'
+                className='z-[100] rounded-lg'
                 src='/kanapka_ser.png'
                 alt='kanapka z serem'
                 width={370}
@@ -37,7 +37,7 @@ const About = () => {
             </div>
             <div className='md:w-1/2'>
               <Image
-                className='-translate-x-10 md:-translate-x-2 translate-y-10 md:translate-y-5'
+                className='-translate-x-10 md:-translate-x-2 translate-y-10 md:translate-y-5 rounded-lg'
                 src='/precle_piec.png'
                 alt='precle z pieca'
                 width={370}
@@ -58,7 +58,7 @@ const About = () => {
         </div>
       </div>
       <div className='text-center mt-[100px]'>
-        <CustomButton text='CZYTAJ WIĘCEJ' />
+        <CustomButton text='CZYTAJ WIĘCEJ' link='/' />
       </div>
     </div>
   );

@@ -70,3 +70,9 @@
   background-position: center;
   z-index: -1;
 }
+
+.background-menu {
+  background-image: url("/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+}

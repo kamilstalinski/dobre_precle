@@ -9,7 +9,7 @@ const Hero = () => {
           <br />
           <span className='text-[#FBE8CF] font-bold'>PRECLOWE LOVE?</span>
         </h1>
-        <CustomButton text='CZYTAJ WIĘCEJ' />
+        <CustomButton text='CZYTAJ WIĘCEJ' link='/' />
       </div>
     </div>
   );
