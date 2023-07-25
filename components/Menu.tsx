@@ -10,7 +10,7 @@ const Menu = () => {
         <p className='text-[25px] md:text-[18px] text-[#971C25] mb-6'>
           DOBRE PRECLE - Polecają się na przekąskę!
         </p>
-        <CustomButton text='SPRAWDŹ' color='#971C25' link='/' />
+        <CustomButton text='SPRAWDŹ' color='bg-[#971C25]' link='/' />
       </div>
     </div>
   );

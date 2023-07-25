@@ -76,3 +76,8 @@
   background-size: cover;
   background-position: center;
 }
+.background-location {
+  background-image: url("/miasto.png");
+  background-size: cover;
+  background-position: center;
+}

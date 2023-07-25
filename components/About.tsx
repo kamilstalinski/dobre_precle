@@ -14,8 +14,8 @@ const About = () => {
           }}
         />
       </div>
-      <div className='container mx-auto pl-[4%] pr-0 md:pr-2 text-text-color relative flex justify-between'>
-        <div className='w-1/2 md:w-full'>
+      <div className='container mx-auto pl-[4%] pr-0 md:pr-2 text-text-color flex justify-between'>
+        <div className='w-3/5 md:w-full'>
           <h2 className='text-[75px] md:text-[50px] font-bold'>O nas</h2>
           <p className='text-[25px] md:text-[18px]'>
             DOBRE PRECLE - PRECLE DOBRE Z NATURY
@@ -46,9 +46,9 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className='w-1/2 relative md:hidden'>
+        <div className='w-1/2 md:hidden'>
           <Image
-            className='-top-[15%] lg:top-0 right-0'
+            className='top-0 lg:top-0 right-0 xl:w-[50%]'
             src='/precle_deska.png'
             alt='precle na desce'
             width={617}
@@ -57,8 +57,8 @@ const About = () => {
           />
         </div>
       </div>
-      <div className='text-center mt-[100px]'>
-        <CustomButton text='CZYTAJ WIĘCEJ' link='/' />
+      <div className='text-center mt-[100px] md:mt-[50px] md:mb-[50px]'>
+        <CustomButton text='CZYTAJ WIĘCEJ' link='/' color='bg-[#ED8F28]' />
       </div>
     </div>
   );
