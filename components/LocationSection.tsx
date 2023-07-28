@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const LocationSection = () => {
   return (
-    <section className='background-location h-[48rem] md:h-[30rem] relative'>
+    <section className='background-location h-[48rem] md:h-[30rem] relative overflow-hidden'>
       <div className='container mx-auto h-full px-[4%] py-[100px] md:py-[50px] text-center flex flex-col justify-between items-center'>
         <div>
           <h2 className='text-h2 md:text-h2-mobile font-bold text-[#FBE8CF]'>

@@ -8,3 +8,8 @@ export interface ButtonProps {
   color?: string;
   link: string;
 }
+
+export interface SocialMediaProps {
+  alignItems?: string;
+  navbarLinks: boolean;
+}
