@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="793.70135"
+   height="566.92932"
+   viewBox="0 0 793.70135 566.92932"
+   sodipodi:docname="mail_icon.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,425.197 H 595.276 V 0 H 0 Z"
+         id="path14" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="mail_icon"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,566.92933)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18"
+           transform="translate(511.6,100.0221)">
+          <path
+             d="m 0,0 c -1.083,-3.368 -2.166,-6.736 -3.565,-11.087 -41.084,41.922 -81.642,83.309 -121.223,123.698 39.428,40.208 80.064,81.648 121.225,123.624 1.396,-4.338 2.48,-7.707 3.563,-11.075 z"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path20" />
+        </g>
+        <g
+           id="g22"
+           transform="translate(123.7711,353.9419)">
+          <path
+             d="m 0,0 c 5.843,0.793 11.685,2.265 17.529,2.276 84.225,0.149 168.45,0.102 252.675,0.102 26.611,0 53.223,0.134 79.832,-0.109 5.592,-0.051 11.172,-1.491 16.757,-2.291 0.046,-0.445 0.092,-0.891 0.139,-1.336 -0.963,-1.022 -1.897,-2.072 -2.892,-3.062 -51.118,-50.869 -102.251,-101.723 -153.355,-152.607 -11.155,-11.106 -24.177,-15.454 -39.263,-9.958 -5.075,1.849 -10.091,5.079 -13.94,8.886 C 105.258,-106.455 53.245,-54.598 1.184,-2.789 0.815,-2.422 0.507,-1.992 0.17,-1.592 0.113,-1.061 0.057,-0.531 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path24" />
+        </g>
+        <g
+           id="g26"
+           transform="translate(491.5648,71.9729)">
+          <path
+             d="m 0,0 c -5.267,-1.142 -9.575,-2.146 -13.915,-2.976 -1.416,-0.271 -2.919,-0.109 -4.382,-0.109 -110.683,-0.004 -221.367,0.004 -332.05,-0.024 -6.04,-10e-4 -11.866,0.726 -16.17,2.927 40.373,41.168 80.949,82.544 121.887,124.289 5.84,-5.862 11.075,-11.1 16.291,-16.357 6.539,-6.59 13.858,-12.054 22.705,-15.116 24.322,-8.418 45.773,-3.45 64.305,14.237 5.575,5.321 10.85,10.957 16.729,16.922 C -83.199,82.66 -42.033,41.76 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path28" />
+        </g>
+        <g
+           id="g30"
+           transform="translate(227.7934,212.5064)">
+          <path
+             d="m 0,0 c -39.634,-40.428 -80.137,-81.743 -121.013,-123.438 -3.138,6.037 -3.992,11.546 -3.989,17.28 0.019,30.871 0.009,61.742 0.009,92.612 0,39.787 -0.098,79.573 0.109,119.358 0.03,5.682 1.532,11.356 2.352,17.033 0.571,0.129 1.142,0.257 1.713,0.386 C -80.243,81.845 -39.667,40.458 0,0"
+             style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path32" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

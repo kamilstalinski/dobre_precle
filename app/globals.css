@@ -81,3 +81,13 @@
   background-size: cover;
   background-position: center;
 }
+
+.custom-h2 {
+  line-height: 75px;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-h2 {
+    line-height: 50px;
+  }
+}

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import CustomButton from "./CustomButton";
 
-const About = () => {
+const AboutSection = () => {
   return (
-    <div className='about-background py-[80px] md:py-[30px] relative overflow-hidden'>
+    <section className='about-background py-[80px] md:py-[30px] relative overflow-hidden'>
       <div className='absolute w-full h-full scale-[1.7] top-[80%] md:top-[30%] left-[0%] z-[-1]'>
         <Image
           src='/precle_orange.svg'
@@ -16,11 +16,11 @@ const About = () => {
       </div>
       <div className='container mx-auto pl-[4%] pr-0 md:pr-2 text-text-color flex justify-between'>
         <div className='w-3/5 md:w-full'>
-          <h2 className='text-[75px] md:text-[50px] font-bold'>O nas</h2>
-          <p className='text-[25px] md:text-[18px]'>
+          <h2 className='text-h2 md:text-h2-mobile font-bold'>O nas</h2>
+          <p className='text-h3 md:text-h3-mobile'>
             DOBRE PRECLE - PRECLE DOBRE Z NATURY
           </p>
-          <p className='text-[16px] md:text-[14px] md:w-full mt-6'>
+          <p className='text-p md:text-p-mobile md:w-full mt-6'>
             Jak powstały DOBRE PRECLE? Dawno, dawno temu nasz właściciel
             podróżował po różnych zakątkach świata, takich jak Bawaria, Francja
             i Włochy - to właśnie tam odkrył ten DOBRY i wyjątkowy przysmak.
@@ -60,8 +60,8 @@ const About = () => {
       <div className='text-center mt-[100px] md:mt-[50px] md:mb-[50px]'>
         <CustomButton text='CZYTAJ WIĘCEJ' link='/' color='bg-[#ED8F28]' />
       </div>
-    </div>
+    </section>
   );
 };
 
-export default About;
+export default AboutSection;

@@ -28,6 +28,17 @@ module.exports = {
         "text-color": "#971C25",
       },
     },
+    fontSize: {
+      h1: "100px",
+      "h1-tablet": "80px",
+      "h1-mobile": "40px",
+      h2: "75px",
+      "h2-mobile": "50px",
+      h3: "25px",
+      "h3-mobile": "18px",
+      p: "16px",
+      "p-mobile": "14px",
+    },
   },
   plugins: [],
 };
