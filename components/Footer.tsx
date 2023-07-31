@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SocialMedia from "./SocialMedia";
+import { links } from "@/constants";
 
 const Footer = () => {
   return (
@@ -24,21 +25,11 @@ const Footer = () => {
           </p>
           <div className='h-full'>
             <ul className=''>
-              <li>
-                <Link href='/'>AKTUALNOŚCI</Link>
-              </li>
-              <li>
-                <Link href='/o-nas'>O NAS</Link>
-              </li>
-              <li>
-                <Link href='menu'>MENU</Link>
-              </li>
-              <li>
-                <Link href='lokalizacje'>LOKALIZACJE</Link>
-              </li>
-              <li>
-                <Link href='kontakt'>KONTAKT</Link>
-              </li>
+              {links.map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href}>{link.title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
