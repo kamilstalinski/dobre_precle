@@ -6,7 +6,7 @@ import { links } from "@/constants";
 const Footer = () => {
   return (
     <div className='pt-[30px] md:pt-[15px]'>
-      <div className='container mx-auto px-[4%] text-text-color'>
+      <div className='container mx-auto px-[4%] text-text-color -mb-6'>
         <div className='relative w-[200px] h-[50px]'>
           <Image src='/logo-footer.svg' alt='logo' fill />
         </div>
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='w-full h-[300px] lg:h-[200px] sm:h-[150px] relative background-footer'>
+      <div className='w-full h-[300px] lg:h-[200px] sm:h-[150px] relative background-footer -z-10'>
         {/* <Image src='/footer.svg' alt='logo footer' fill /> */}
       </div>
     </div>

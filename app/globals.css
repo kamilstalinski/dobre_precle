@@ -68,7 +68,7 @@ select:-webkit-autofill:focus {
 /* MAIN PAGE */
 .background {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .background::before {
@@ -78,7 +78,6 @@ select:-webkit-autofill:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/precle.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -90,7 +89,7 @@ select:-webkit-autofill:focus {
   background-position: center;
 }
 .background-location {
-  background-image: url("/miasto.png");
+  background-image: url("/location-bg.png");
   background-size: cover;
   background-position: center;
 }
