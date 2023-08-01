@@ -16,44 +16,10 @@ const LocationSection = () => {
             Dołącz do poszukiwaczy smaku DOBRYCH PRECLI na terenie całej Polski
           </p>
         </div>
-        <div className='relative w-full h-full'>
-          <Image
-            className='-bottom-[58%] lg:-bottom-[65%]'
-            src='/line.svg'
-            alt='lokalizacje'
-            width={1500}
-            height={730}
-            style={{
-              position: "absolute",
-            }}
-          />
-        </div>
         <CustomButton text='SPRAWDŹ' link='/' color='bg-[#ED8F28]' />
       </div>
-      <Image
-        className='top-[12%] -left-[6%] -rotate-[55deg]'
-        src='/precel_suchy.png'
-        alt='lokalizacje'
-        width={500}
-        height={339}
-        style={{
-          position: "absolute",
-        }}
-      />
-      <Image
-        className='top-[0%] -right-[6%] -rotate-[105deg]'
-        src='/precel_suchy.png'
-        alt='lokalizacje'
-        width={500}
-        height={339}
-        style={{
-          position: "absolute",
-        }}
-      />
     </section>
   );
 };
-
-// -bottom-[8%] 2xl:bottom-[0] xl:bottom-[10%]
 
 export default LocationSection;

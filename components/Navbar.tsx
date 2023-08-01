@@ -34,7 +34,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleMenuClick = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      if (
+        isActive &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target as Node)
+      ) {
         handleActive();
       }
     };
@@ -63,7 +67,7 @@ const Navbar = () => {
         visible ? "top-0" : "-top-[100%]"
       } transition-all duration-500`}>
       <nav
-        className={`${lato.className} container mx-auto h-20 w-full flex justify-between items-center px-[4%] pb-4 md:pb-0`}>
+        className={`${lato.className} container mx-auto h-28 md:h-20 w-full flex justify-between items-center px-[4%] pb-4 md:pb-0`}>
         <div className='nav__logo h-full flex items-end md:items-center relative'>
           <Link
             className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-[99999]'
@@ -84,13 +88,16 @@ const Navbar = () => {
         <Hamburger isActive={isActive} handleActive={handleActive} />
         <div
           ref={menuRef}
-          className={`nav__mobilemenu z-[9999] w-3/4 h-screen bg-[#FBE8CF] absolute top-0 transition-[left] duration-500 ${
+          className={`nav__mobilemenu z-[9999] w-4/6 h-screen bg-[#FBE8CF] absolute top-0 transition-[left] duration-500 ${
             isActive ? "left-0" : "-left-full"
           }`}>
-          <div className='nav__links-mobile px-4 pt-[130px] text-lg'>
+          <div className='nav__links-mobile px-4 pt-[130px]'>
             <ul className='text-[#971C25]'>
               {links.map((link, i) => (
-                <li onClick={handleActive} key={i} className='nav__link mt-2'>
+                <li
+                  onClick={handleActive}
+                  key={i}
+                  className='nav__link mt-2 text-[18px]'>
                   <Link href={link.href}>{link.title}</Link>
                 </li>
               ))}

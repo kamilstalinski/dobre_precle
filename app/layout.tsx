@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${montserrat.className} hidden-x`}>
+      <body
+        suppressHydrationWarning={true}
+        className={`${montserrat.className}`}>
         <Navbar />
         {children}
         <Footer />
