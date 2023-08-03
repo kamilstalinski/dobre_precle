@@ -23,8 +23,8 @@ const Menu = () => {
           </p>
         </div>
       </div>
-      <div className='relative w-full h-[1000px] flex flex-col justify-between items-center py-[200px] overflow-hidden'>
-        <p className='w-[30%] text-center'>
+      <div className='relative w-full h-[1100px] flex flex-col justify-between items-center py-[200px] xl:bg-red-400 lg:bg-blue-400 md:bg-green-400'>
+        <p className='w-[407px] text-center'>
           Przygotowaliśmy szeroki wybór, który obejmuje{" "}
           <span className='font-bold'>
             precle suche, z różnorodnymi posypkami
@@ -32,7 +32,7 @@ const Menu = () => {
           oraz <span className='font-bold'>wyjątkowe precle na słodko,</span>{" "}
           które są prawdziwą ucztą dla podniebienia.
         </p>
-        <p className='w-[30%] text-center mb-[140px]'>
+        <p className='w-[407px] text-center mb-[140px]'>
           A jeśli szukasz czegoś bardziej sycącego, np. do pracy czy w podróży,
           to nasze{" "}
           <span className='font-bold'>
@@ -42,20 +42,21 @@ const Menu = () => {
           tradycyjnych przekąsek do wyższego poziomu, odpowiadając na różne
           gusta smakowe.
         </p>
-        <div className='w-[30%] h-[40%] absolute top-0 left-0'>
+        <div className='w-[30%] xl:w-[35%] h-[40%] absolute top-0 left-0'>
           <Image
             src='/precle_suche.png'
             alt='precle suche'
             fill
             objectFit='contain'
+            objectPosition='left'
             style={{
               rotate: "-10deg",
               scale: 1.3,
-              translate: "-15% 0",
+              translate: "-4% 0",
             }}
           />
         </div>
-        <div className='w-[20%] h-[40%] absolute top-[20%] left-[18%]'>
+        <div className='w-[20%] xl:w-[25%] h-[40%] absolute top-[20%] left-[18%] xl:left-[25%]'>
           <Image
             src='/precle_suche_sol.png'
             alt='precle suche'
@@ -63,7 +64,7 @@ const Menu = () => {
             objectFit='contain'
           />
         </div>
-        <div className='w-[35%] h-[60%] absolute top-[34%] left-0'>
+        <div className='w-[35%] xl:w-[45%] h-[60%] absolute top-[34%] left-0'>
           <Image
             src='/kanapka_1.png'
             alt='precle suche'
@@ -72,7 +73,7 @@ const Menu = () => {
             objectPosition='left'
           />
         </div>
-        <div className='w-[25%] h-[60%] absolute top-[54%] left-[5%]'>
+        <div className='w-[25%] xl:w-[30%] h-[60%] absolute top-[54%] xl:top-[56%] left-[5%] xl:left-[0]'>
           <Image
             src='/kanapka_2.png'
             alt='precle suche'
@@ -99,7 +100,7 @@ const Menu = () => {
             objectPosition='left'
           />
         </div>
-        <div className='w-[40%] h-[60%] absolute top-[50%] right-0'>
+        <div className='w-[40%] xl:w-[45%] h-[60%] absolute top-[50%] right-0'>
           <Image
             src='/kanapka_5.png'
             alt='precle suche'
@@ -108,13 +109,25 @@ const Menu = () => {
             objectPosition='right'
           />
         </div>
-        <div className='w-[30%] h-[60%] absolute top-[23%] right-0'>
+        <div className='w-[30%] xl:w-[38%] h-[60%] absolute top-[23%] xl:top-[28%] right-0'>
           <Image
             src='/kanapka_6.png'
             alt='precle suche'
             fill
             objectFit='contain'
             objectPosition='right'
+          />
+        </div>
+        <div className='w-[25%] xl:w-[35%] h-[55%] absolute -top-[10%] right-0'>
+          <Image
+            src='/precle_slodkie.png'
+            alt='precle suche'
+            fill
+            objectFit='contain'
+            objectPosition='right'
+            style={{
+              transform: "translateX(20%)",
+            }}
           />
         </div>
       </div>
