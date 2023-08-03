@@ -8,6 +8,7 @@ import MenuSection from "./MenuSection";
 import LocationSection from "./LocationSection";
 import ContactSection from "./ContactSection";
 import SocialMedia from "./SocialMedia";
+import BlogPost from "./BlogPost";
 
 export {
   Navbar,
