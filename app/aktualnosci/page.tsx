@@ -1,15 +1,16 @@
-import BlogPost from "@/components/BlogPost";
-import { PostProps } from "@/types";
+import { BlogPost } from "@/components";
+import { PostProps, PostTestProps } from "@/types";
+import { posts } from "@/constants";
 
-const getPosts = async () => {
-  const data = await fetch("http://localhost:1337/api/blogs?populate=*");
-  const posts = await data.json();
+// const getPosts = async () => {
+//   const data = await fetch("http://localhost:1337/api/blogs?populate=*");
+//   const posts = await data.json();
 
-  return posts;
-};
+//   return posts;
+// };
 
 const page = async () => {
-  const posts = await getPosts();
+  // const posts = await getPosts();
 
   return (
     <section>
@@ -18,25 +19,25 @@ const page = async () => {
           Aktualności
         </h1>
       </div>
-      <div className='container mx-auto px-[5%] my-[50px]'>
-        <h2 className='text-text-color text-[50px] md:text-h2-mobile font-bold -mb-4'>
+      <div className='container mx-auto px-[5%] my-[50px] md:my-[30px]'>
+        <h2 className='text-text-color text-[50px] md:text-h1-mobile sm:text-[30px] font-bold -mb-4'>
           Czujesz nasze PRECLOWE LOVE?
         </h2>
-        <h3 className='text-text-color text-[35px] md:text-h2-mobile font-bold mb-3'>
+        <h3 className='text-text-color text-[35px] md:text-h1-mobile sm:text-[30px] font-bold mb-3'>
           Legendy głoszą, że…
         </h3>
-        <h4 className='text-black text-[21px] md:text-h2-mobile font-bold mb-4'>
+        <h4 className='text-black text-[21px] md:text-p-mobile sm:text-[20px] font-bold mb-4'>
           Skąd się wziął DOBRY PRECEL?
           <br /> Poznaj fascynujące legendy o tym popularnym wypieku:
         </h4>
-        <p className='mb-4'>
+        <p className='mb-4 md:text-p-mobile'>
           1. Pierwsza legenda głosi, że precle bawarskie zostały wymyślone przez
           piekarza z Bad Urach, który znalazł się w niełasce u księcia. Przed
           egzekucją, aby ocapć swoje życie, miał stworzyć pieczywo, przez które
           słońce świeci trzy razy. Tak właśnie podobno powstał precel. Ciekawą
           historię na ten temat można usłyszeć w Muzeum Kultury Chleba w Ulm.
         </p>
-        <p className='mb-4'>
+        <p className='mb-4 md:text-p-mobile'>
           2. Według innej legendy precla wymyśpł mnich pochodzący z północnych
           Włoch lub południowej Francji. Pewnego dnia, po upieczeniu chleba,
           mnich z resztek ciasta postanowił stworzyć przekąskę dla dzieci, które
@@ -44,13 +45,13 @@ const page = async () => {
           kształcie rąk złożonych do modptwy. To dlatego precel ma swój
           charakterystyczny wygląd.
         </p>
-        <p className='mb-4'>
+        <p className='mb-4 md:text-p-mobile'>
           3. Ciekawostką jest również pochodzenie nazwy „precel”, która wywodzi
           się z łaciny i oznacza &quot;małe ramionka&quot;. To odniesienie do
           charakterystycznego kształtu precla, który przypomina splecione
           ramiona.
         </p>
-        <p>
+        <p className='md:text-p-mobile'>
           To nie legenda, że Dobre Precle możesz już zjeść we Wrocławiu – to
           fakt! Kto spróbuje, ten zrozumie, skąd się wzięła popularność tego
           wypieku. Precle mają swoich fanów na całym świecie i często spożywane
@@ -62,8 +63,8 @@ const page = async () => {
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>
-        {posts.data.map((post: PostProps) => {
-          return <BlogPost id={post.id} attributes={post.attributes} />;
+        {posts.map((post: PostTestProps) => {
+          return <BlogPost post={post} />;
         })}
       </div>
     </section>

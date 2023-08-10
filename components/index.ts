@@ -9,6 +9,8 @@ import LocationSection from "./LocationSection";
 import ContactSection from "./ContactSection";
 import SocialMedia from "./SocialMedia";
 import BlogPost from "./BlogPost";
+import Maps from "./Maps";
+import LocationsList from "./LocationsList";
 
 export {
   Navbar,
@@ -21,4 +23,7 @@ export {
   ContactSection,
   Footer,
   SocialMedia,
+  BlogPost,
+  Maps,
+  LocationsList,
 };

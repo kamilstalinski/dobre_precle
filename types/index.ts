@@ -109,3 +109,15 @@ interface PostsResponse {
     };
   };
 }
+
+export interface PostTestProps {
+  index: number;
+  PostTitle: string;
+  PostText: string;
+  PostImage: string;
+  PostDate: string;
+}
+
+export interface BlogPostTestProps {
+  post: PostTestProps;
+}
