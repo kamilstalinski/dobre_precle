@@ -104,10 +104,21 @@ select:-webkit-autofill:focus {
   background-position: center;
 }
 .background-location {
-  background-image: url("/location-bg.png");
+  background-image: url("/location-bg.svg");
   background-size: cover;
   background-position: center;
 }
+@media screen and (max-width: 639px) {
+  .background-location {
+    background-position: center 43%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .background-location {
+    background-position: 0% 58%;
+  }
+}
+
 .background-footer {
   background-image: url("/footer.svg");
   background-size: cover;

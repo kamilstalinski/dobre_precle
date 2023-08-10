@@ -10,7 +10,7 @@ const MenuSection = () => {
         <p className='text-h3 md:text-h3-mobile text-[#971C25] mb-6'>
           DOBRE PRECLE - Polecają się na przekąskę!
         </p>
-        <CustomButton text='SPRAWDŹ' color='bg-[#971C25]' link='/' />
+        <CustomButton text='SPRAWDŹ' color='bg-[#971C25]' link='/menu' />
       </div>
     </section>
   );
