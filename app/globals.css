@@ -82,6 +82,21 @@ select:-webkit-autofill:focus {
   background-position: center;
   z-index: -1;
 }
+.background-loc {
+  position: relative;
+}
+
+.background-loc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  z-index: -1;
+}
 
 .background-menu {
   background-image: url("/hero-bg.png");
@@ -106,5 +121,43 @@ select:-webkit-autofill:focus {
 @media screen and (max-width: 767px) {
   .custom-h2 {
     line-height: 50px;
+  }
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: rgb(151, 28, 37);
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
   }
 }

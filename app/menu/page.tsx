@@ -9,7 +9,7 @@ const Menu = () => {
         </h1>
       </div>
       <div className='container mx-auto px-[4%]'>
-        <div className='container mx-auto px-[4%] w-4/5 my-[30px] md:my-[20px] p-[30px] text-center text-white bg-[#EB8C11] rounded-3xl'>
+        <div className='container mx-auto px-[4%] w-4/5 md:w-[95%] my-[30px] md:my-[20px] p-[30px] text-center text-white bg-[#EB8C11] rounded-3xl'>
           <h2 className='text-h3 md:text-h3-mobile font-bold mb-4'>
             DOBRE PRECLE – Polecają się na przekąskę!
           </h2>
@@ -23,7 +23,7 @@ const Menu = () => {
           </p>
         </div>
       </div>
-      <div className='relative w-full h-[1100px] flex flex-col justify-between items-center py-[200px] xl:bg-red-400 lg:bg-blue-400 md:bg-green-400'>
+      <div className='relative w-full h-[1100px] flex flex-col justify-between items-center py-[200px] xl:bg-red-400 lg:bg-blue-400 md:bg-green-400 overflow-hidden'>
         <p className='w-[407px] text-center'>
           Przygotowaliśmy szeroki wybór, który obejmuje{" "}
           <span className='font-bold'>
