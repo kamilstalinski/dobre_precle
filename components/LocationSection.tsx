@@ -25,7 +25,7 @@ const LocationSection = () => {
             Dołącz do poszukiwaczy smaku DOBRYCH PRECLI na terenie całej Polski
           </p>
         </div>
-        <CustomButton text='SPRAWDŹ' link='/' color='bg-[#ED8F28]' />
+        <CustomButton text='SPRAWDŹ' link='/lokalizacje' color='bg-[#ED8F28]' />
       </div>
       <div className='h-full flex items-center absolute left-[100%]'>
         <Image

@@ -58,7 +58,7 @@ const AboutSection = () => {
         </div>
       </div>
       <div className='text-center mt-[100px] md:mt-[50px] md:mb-[50px]'>
-        <CustomButton text='CZYTAJ WIĘCEJ' link='/' color='bg-[#ED8F28]' />
+        <CustomButton text='CZYTAJ WIĘCEJ' link='/o-nas' color='bg-[#ED8F28]' />
       </div>
     </section>
   );

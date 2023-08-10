@@ -9,7 +9,11 @@ const HeroSection = () => {
           <br />
           <span className='text-[#FBE8CF] font-bold'>PRECLOWE LOVE?</span>
         </h1>
-        <CustomButton text='CZYTAJ WIĘCEJ' link='/' color='bg-[#ED8F28]' />
+        <CustomButton
+          text='CZYTAJ WIĘCEJ'
+          link='/aktualnosci'
+          color='bg-[#ED8F28]'
+        />
       </div>
     </section>
   );
