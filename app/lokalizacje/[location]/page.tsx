@@ -48,7 +48,7 @@ const locationId = ({ params: { locationId } }: Params) => {
             <p className='text-[14px] mb-4'>
               (lokal nr 8 - pierwszy lokal na lewo od wejścia głównego)
             </p>
-            <p className='text-[18px] text-white'>tel: 000 000 000</p>
+            <p className='text-[18px] text-white'>+48 508 054 020</p>
             <p className='text-[18px] text-white mb-8'>
               pon. - niedz. 6:00 - 22:00
             </p>

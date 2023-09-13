@@ -2,7 +2,7 @@ import CustomButton from "./CustomButton";
 
 const HeroSection = () => {
   return (
-    <section className='background before:bg-[url("/precle.png")] w-full h-[40rem] md:h-[25rem] '>
+    <section className='background before:bg-[url("/precle.png")] w-full h-[40rem] md:h-[25rem]'>
       <div className='container mx-auto px-4 h-full flex flex-col gap-12 items-center justify-center'>
         <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center leading-tight'>
           Czujesz nasze

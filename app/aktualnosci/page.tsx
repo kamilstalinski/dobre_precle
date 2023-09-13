@@ -14,12 +14,12 @@ const page = async () => {
 
   return (
     <section>
-      <div className='background background before:bg-[url("/kanapka_o_nas.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
+      <div className='background background before:bg-[url("/precel_aktualnosci.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center font-bold leading-tight'>
           Aktualności
         </h1>
       </div>
-      <div className='container mx-auto px-[5%] my-[50px] md:my-[30px]'>
+      <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
         <h2 className='text-text-color text-[50px] md:text-h1-mobile sm:text-[30px] font-bold -mb-4'>
           Czujesz nasze PRECLOWE LOVE?
         </h2>
@@ -33,19 +33,19 @@ const page = async () => {
         <p className='mb-4 md:text-p-mobile'>
           1. Pierwsza legenda głosi, że precle bawarskie zostały wymyślone przez
           piekarza z Bad Urach, który znalazł się w niełasce u księcia. Przed
-          egzekucją, aby ocapć swoje życie, miał stworzyć pieczywo, przez które
+          egzekucją, aby ocalić swoje życie, miał stworzyć pieczywo, przez które
           słońce świeci trzy razy. Tak właśnie podobno powstał precel. Ciekawą
           historię na ten temat można usłyszeć w Muzeum Kultury Chleba w Ulm.
         </p>
         <p className='mb-4 md:text-p-mobile'>
-          2. Według innej legendy precla wymyśpł mnich pochodzący z północnych
+          2. Według innej legendy precla wymyślił mnich pochodzący z północnych
           Włoch lub południowej Francji. Pewnego dnia, po upieczeniu chleba,
           mnich z resztek ciasta postanowił stworzyć przekąskę dla dzieci, które
-          właśnie uczyły się nowej modptwy. W ten sposób powstał przysmak w
-          kształcie rąk złożonych do modptwy. To dlatego precel ma swój
+          właśnie uczyły się nowej modlitwy. W ten sposób powstał przysmak w
+          kształcie rąk złożonych do modlitwy. To dlatego precel ma swój
           charakterystyczny wygląd.
         </p>
-        <p className='mb-4 md:text-p-mobile'>
+        <p className='mb-12 md:text-p-mobile'>
           3. Ciekawostką jest również pochodzenie nazwy „precel”, która wywodzi
           się z łaciny i oznacza &quot;małe ramionka&quot;. To odniesienie do
           charakterystycznego kształtu precla, który przypomina splecione
@@ -56,10 +56,10 @@ const page = async () => {
           fakt! Kto spróbuje, ten zrozumie, skąd się wzięła popularność tego
           wypieku. Precle mają swoich fanów na całym świecie i często spożywane
           są jako samodzielna przekąska lub w formie kanapki. Teraz dotarły do
-          nas – już wkrótce czekają nas wielkie otwarcia w Katowicach, Gpwicach,
-          Krakowie i Bydgoszczy. Przygotuj się na prawdziwą preclową ucztę,
-          pełną smaku i tradycji! Zapraszamy na Dobre Precle do naszych lokap na
-          terenie całej Polski (już niedługo).
+          nas – już wkrótce czekają nas wielkie otwarcia w Katowicach,
+          Gliwicach, Krakowie i Bydgoszczy. Przygotuj się na prawdziwą preclową
+          ucztę, pełną smaku i tradycji! Zapraszamy na Dobre Precle do naszych
+          lokali na terenie całej Polski (już niedługo).
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>

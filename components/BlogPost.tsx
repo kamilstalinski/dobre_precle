@@ -10,7 +10,6 @@ const BlogPost = ({ post }: BlogPostTestProps) => {
       className='w-full flex md:flex-col justify-center  gap-[5%] mb-12'>
       <div className='w-[40%] md:w-full min-h-[350px] relative mb-4'>
         <Image
-          // src={`http://localhost:1337${attributes.PostImage.data.attributes.url}`}
           src={post.PostImage}
           alt=''
           fill

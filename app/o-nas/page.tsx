@@ -3,23 +3,22 @@ import Image from "next/image";
 const AboutUs = () => {
   return (
     <section>
-      <div className='background background before:bg-[url("/kanapka_o_nas.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
+      <div className='background background before:bg-[url("/precel_o_nas.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center font-bold leading-tight'>
           O nas
         </h1>
       </div>
-      <div className='container mx-auto px-[4%] py-[30px]'>
+      <div className='container mx-auto px-[4%] py-[40px]'>
         <div className='flex items-center md:flex-col'>
           <div className='w-1/2 md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               DOBRE PRECLE – PRECLE DOBRE Z NATURY
             </h2>
             <p className='text-p md:text-p-mobile'>
-              Jak powstały <span className='font-bold'>DOBRE PRECLE?</span>{" "}
-              Dawno, dawno temu nasz właściciel podróżował po różnych zakątkach
-              świata, takich jak Bawaria, Francja i Włochy – to właśnie tam
-              odkrył ten{" "}
-              <span className='font-bold'>DOBRY i wyjątkowy przysmak.</span>
+              Jak powstały <span className='font-bold'>DOBRE PRECLE?</span> Ten
+              DOBRY i wyjątkowy przysmak odkrył jeden z założycieli marki Dobre
+              Precle podczas licznych podróży po Europie, m.in. w krajach takich
+              jak Bawaria, Francja czy Włochy.
               <br />
               <br />
               <span className='font-bold'>Precle</span>, czyli pyszne zawinięte
@@ -102,7 +101,7 @@ const AboutUs = () => {
             </h2>
             <p className='text-p md:text-p-mobile'>
               Dobre Precle tworzymy według naszej sekretnej receptury, używając
-              starannie dobranych składników Do ich przygotowania używamy wody,
+              starannie dobranych składników. Do ich przygotowania używamy wody,
               mąki, drożdży i soli, ale to nie wszystko. Jak sama nasza nazwa
               wskazuje, dobry smak i świeżość to wartości głęboko zakorzenione w
               naszej działalności. Zrobiony z kilku prostych, świeżych
@@ -134,13 +133,21 @@ const AboutUs = () => {
               różnych wersjach smakowych (sezam, mak, mak z sezamem i solą
               morską, masło czosnkowe). Z pasji do precli na ich bazie
               stworzyliśmy oryginalne, autorskie kanapki.
+              <br />
               <br /> W szerokiej gamie precli znajdziesz kilkanaście
               różnorodnych kompozycji, w tym słodkie klasyki z dodatkiem
               czekolady, orzechów lub wiórków kokosowych. Ponadto proponujemy
               unikalne kompozycje kanapkowe, które zawierają takie składniki jak
               np.: soczyste brzoskwinie, winogrona, szynkę parmeńską, kapary,
               świeże sałaty, rukolę, a także salami, ser, papryczki chilli czy
+              pomidory.W szerokiej gamie precli znajdziesz kilkanaście
+              różnorodnych kompozycji, w tym słodkie klasyki z dodatkiem
+              czekolady, orzechów lub wiórków kokosowych. Ponadto proponujemy
+              unikalne kompozycje kanapkowe, które zawierają takie składniki jak
+              np.: soczyste brzoskwinie, winogrona, szynkę parmeńską, kapary,
+              świeże sałaty, rukolę, a także salami, ser, papryczki chilli czy
               pomidory.
+              <br />
               <br /> Nasze preclowe kanapki doskonale sprawdzają się zarówno w
               wersjach na ciepło, jak i na zimno. Bez względu na to, czy jesteś
               miłośnikiem mięsa, czy preferujesz wegetariańską lub wegańską
@@ -148,7 +155,7 @@ const AboutUs = () => {
               oferujemy różne propozycje dla smakoszy.
             </p>
           </div>
-          <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
+          <div className='w-1/2 md:w-full max-h-[680px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
               src='/autorskie_kanapki.png'
               alt='precle'
@@ -175,7 +182,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/formowanie.png'
+              src='/napoje.png'
               alt='precle'
               width={2000}
               height={1333}

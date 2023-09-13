@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const Maps = () => {
@@ -33,6 +34,7 @@ const Maps = () => {
             url: "/marker.svg",
             scaledSize: new window.google.maps.Size(80, 80),
           }}
+          onClick={() => (window.location.href = "lokalizacje/wroclaw")}
         />
       </GoogleMap>
     </div>
