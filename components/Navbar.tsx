@@ -67,7 +67,7 @@ const Navbar = () => {
         visible ? "top-0" : "-top-[100%]"
       } transition-all duration-500`}>
       <nav
-        className={`${lato.className} container mx-auto h-28 md:h-20 w-full flex justify-between items-center px-[4%] pb-4 md:pb-0`}>
+        className={`${lato.className} container mx-auto h-28 md:h-20 w-full flex justify-between items-center px-[4%] md:px-[2%] pb-4 md:pb-0`}>
         <div className='nav__logo h-full flex items-end md:items-center relative'>
           <Link
             className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-[99999]'
@@ -76,7 +76,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='nav__links h-full'>
-          <ul className='h-full flex gap-11 lg:gap-6 items-end text-[#971C25] font-bold'>
+          <ul className='h-full flex gap-8 lg:gap-4 items-end text-[#971C25] font-bold'>
             {links.map((link, i) => (
               <li key={i} className='nav__link'>
                 <Link href={link.href}>{link.title}</Link>

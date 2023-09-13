@@ -19,7 +19,7 @@ const LocationSection = () => {
             Lokalizacje
           </h2>
           <p className='text-h3 md:text-h3-mobile text-white'>
-            KOMU W DROGĘ, TEMU... DOBRE PRECLE!
+            KOMU W DROGĘ, TEMU... DOBRE&nbsp;PRECLE!
           </p>
           <p className='text-p md:text-p-mobile md:w-full text-white'>
             Dołącz do poszukiwaczy smaku DOBRYCH PRECLI na terenie całej Polski

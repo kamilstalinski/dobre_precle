@@ -3,7 +3,7 @@ import Image from "next/image";
 const Menu = () => {
   return (
     <section>
-      <div className='background background before:bg-[url("/kanapki_menu.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
+      <div className='background background before:bg-[url("/precle_menu_1.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center font-bold leading-tight'>
           Menu
         </h1>
@@ -23,7 +23,7 @@ const Menu = () => {
           </p>
         </div>
       </div>
-      <div className='relative w-full h-[1100px] flex flex-col justify-between items-center py-[200px] xl:bg-red-400 lg:bg-blue-400 md:bg-green-400 overflow-hidden'>
+      <div className='relative w-full h-[500px] flex flex-col justify-between items-center py-[100px] overflow-hidden'>
         <p className='w-[407px] text-center'>
           Przygotowaliśmy szeroki wybór, który obejmuje{" "}
           <span className='font-bold'>
@@ -32,7 +32,7 @@ const Menu = () => {
           oraz <span className='font-bold'>wyjątkowe precle na słodko,</span>{" "}
           które są prawdziwą ucztą dla podniebienia.
         </p>
-        <p className='w-[407px] text-center mb-[140px]'>
+        <p className='w-[407px] text-center'>
           A jeśli szukasz czegoś bardziej sycącego, np. do pracy czy w podróży,
           to nasze{" "}
           <span className='font-bold'>
@@ -64,60 +64,6 @@ const Menu = () => {
             objectFit='contain'
           />
         </div>
-        <div className='w-[35%] xl:w-[45%] h-[60%] absolute top-[34%] left-0'>
-          <Image
-            src='/kanapka_1.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='left'
-          />
-        </div>
-        <div className='w-[25%] xl:w-[30%] h-[60%] absolute top-[54%] xl:top-[56%] left-[5%] xl:left-[0]'>
-          <Image
-            src='/kanapka_2.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='left'
-          />
-        </div>
-        <div className='w-[25%] h-[60%] absolute top-[58%] left-[24%]'>
-          <Image
-            src='/kanapka_3.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='left'
-          />
-        </div>
-        <div className='w-[28%] h-[60%] absolute top-[55%] left-[43%]'>
-          <Image
-            src='/kanapka_4.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='left'
-          />
-        </div>
-        <div className='w-[40%] xl:w-[45%] h-[60%] absolute top-[50%] right-0'>
-          <Image
-            src='/kanapka_5.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='right'
-          />
-        </div>
-        <div className='w-[30%] xl:w-[38%] h-[60%] absolute top-[23%] xl:top-[28%] right-0'>
-          <Image
-            src='/kanapka_6.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='right'
-          />
-        </div>
         <div className='w-[25%] xl:w-[35%] h-[55%] absolute -top-[10%] right-0'>
           <Image
             src='/precle_slodkie.png'
@@ -131,9 +77,10 @@ const Menu = () => {
           />
         </div>
       </div>
-      <div className='background background before:bg-[url("/kanapki_menu_2.png")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
+      <div className='background background before:bg-[url("/precle_menu_2.png")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <h1 className='text-[60px] md:text-[30px] text-white text-center font-bold leading-tight container'>
-          Wybierz swoje ulubione precle i ciesz się ich smakiem!
+          Wybierz swoje ulubione precle
+          <br /> i ciesz się ich smakiem!
         </h1>
       </div>
     </section>

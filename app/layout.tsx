@@ -17,6 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <link rel='icon' href='/marker_2.svg' sizes='any' />
       <body
         suppressHydrationWarning={true}
         className={`${montserrat.className}`}>

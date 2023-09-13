@@ -3,7 +3,9 @@ import CustomButton from "./CustomButton";
 
 const AboutSection = () => {
   return (
-    <section className='about-background py-[80px] md:py-[30px] relative overflow-hidden'>
+    <section
+      className='about-background py-[80px] md:py-[30px] relative overflow-hidden'
+      data-aos='fade-up'>
       <div className='absolute w-full h-full scale-[1.7] top-[80%] md:top-[30%] left-[0%] z-[-1]'>
         <Image
           src='/precle_orange.svg'
