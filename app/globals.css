@@ -188,3 +188,19 @@ select:-webkit-autofill:focus {
     height: 32px;
   }
 }
+
+/* Swiper Custom Styles */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ed8f28 !important;
+}
