@@ -67,10 +67,10 @@ const Navbar = () => {
         visible ? "top-0" : "-top-[100%]"
       } transition-all duration-500`}>
       <nav
-        className={`${lato.className} container mx-auto h-28 md:h-20 w-full flex justify-between items-center px-[4%] md:px-[2%] pb-4 md:pb-0`}>
+        className={`${lato.className} container mx-auto h-28 md:h-20 w-full flex justify-between items-center px-[4%] lg:px-[2%] pb-4 md:pb-0`}>
         <div className='nav__logo h-full flex items-end md:items-center relative'>
           <Link
-            className='image__container relative w-[210px] h-[83px] md:w-[122px] md:h-[48px] z-[99999]'
+            className='image__container relative w-[180px] lg:w-[160px] lg:translate-y-1 h-[83px] md:w-[122px] md:h-[48px] z-[99999]'
             href='/'>
             <Image src='/logo.svg' alt='Dobre Precle logo' fill />
           </Link>
@@ -91,18 +91,27 @@ const Navbar = () => {
           className={`nav__mobilemenu z-[9999] w-4/6 h-screen bg-[#FBE8CF] absolute top-0 transition-[left] duration-500 ${
             isActive ? "left-0" : "-left-full"
           }`}>
-          <div className='nav__links-mobile px-4 pt-[130px]'>
-            <ul className='text-[#971C25]'>
-              {links.map((link, i) => (
-                <li
-                  onClick={handleActive}
-                  key={i}
-                  className='nav__link mt-2 text-[18px]'>
-                  <Link href={link.href}>{link.title}</Link>
-                </li>
-              ))}
-            </ul>
-            <SocialMedia alignItems='end' navbarLinks={true} />
+          <div className='nav__links-mobile h-screen px-4 pb-4 pt-[130px] flex flex-col justify-between'>
+            <div>
+              <ul className='text-[#971C25] mb-4'>
+                {links.map((link, i) => (
+                  <li
+                    onClick={handleActive}
+                    key={i}
+                    className='nav__link mt-2 text-[18px]'>
+                    <Link href={link.href}>{link.title}</Link>
+                  </li>
+                ))}
+              </ul>
+              <SocialMedia alignItems='top' navbarLinks={false} />
+            </div>
+            <div className='flex flex-col mt-4 text-text-color text-[14px]'>
+              <Link href='/polityka-prywatnosci'>Polityka Prywatności</Link>
+              <Link href='/rodo'>Obowiązek informacyjny RODO</Link>
+              <p className='mt-2 text-[12px]'>
+                ©{new Date().getFullYear()} Dobre Precle
+              </p>
+            </div>
           </div>
         </div>
       </nav>

@@ -4,7 +4,7 @@ const Menu = () => {
   return (
     <section>
       <div className='background background before:bg-[url("/precle_menu_1.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center font-bold leading-tight'>
+        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
           Menu
         </h1>
       </div>

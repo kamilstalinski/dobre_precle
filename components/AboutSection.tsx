@@ -3,9 +3,7 @@ import CustomButton from "./CustomButton";
 
 const AboutSection = () => {
   return (
-    <section
-      className='about-background py-[80px] md:py-[30px] relative overflow-hidden'
-      data-aos='fade-up'>
+    <section className='about-background py-[80px] md:py-[30px] relative overflow-hidden'>
       <div className='absolute w-full h-full scale-[1.7] top-[80%] md:top-[30%] left-[0%] z-[-1]'>
         <Image
           src='/precle_orange.svg'
@@ -18,16 +16,22 @@ const AboutSection = () => {
       </div>
       <div className='container mx-auto pl-[4%] pr-0 md:pr-2 text-text-color flex justify-between'>
         <div className='w-3/5 md:w-full'>
-          <h2 className='text-h2 md:text-h2-mobile font-bold'>O nas</h2>
-          <p className='text-h3 md:text-h3-mobile'>
+          <h2
+            className='text-h2 md:text-h2-mobile font-bold'
+            data-aos='fade-left'>
+            O nas
+          </h2>
+          <p className='text-h3 md:text-h3-mobile' data-aos='fade-left'>
             DOBRE PRECLE - PRECLE DOBRE Z NATURY
           </p>
-          <p className='text-p md:text-p-mobile md:w-full mt-6'>
+          <p
+            className='text-p md:text-p-mobile md:w-full mt-6'
+            data-aos='fade-left'>
             Jak powstały DOBRE PRECLE? Dawno, dawno temu nasz właściciel
             podróżował po różnych zakątkach świata, takich jak Bawaria, Francja
             i Włochy - to właśnie tam odkrył ten DOBRY i wyjątkowy przysmak.
           </p>
-          <div className='flex mt-8 md:flex'>
+          <div className='flex mt-8 md:flex' data-aos='fade-left'>
             <div className='md:w-1/2'>
               <Image
                 className='z-[100] rounded-lg'
@@ -60,7 +64,12 @@ const AboutSection = () => {
         </div>
       </div>
       <div className='text-center mt-[100px] md:mt-[50px] md:mb-[50px]'>
-        <CustomButton text='CZYTAJ WIĘCEJ' link='/o-nas' color='bg-[#ED8F28]' />
+        <CustomButton
+          text='CZYTAJ WIĘCEJ'
+          link='/o-nas'
+          color='bg-[#ED8F28]'
+          dataAos='fade-left'
+        />
       </div>
     </section>
   );

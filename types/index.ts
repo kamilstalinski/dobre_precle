@@ -7,6 +7,7 @@ export interface ButtonProps {
   text: string;
   color?: string;
   link: string;
+  dataAos?: string;
 }
 
 export interface SocialMediaProps {

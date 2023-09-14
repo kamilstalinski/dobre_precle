@@ -3,6 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 type Params = {
   params: {
@@ -78,8 +85,8 @@ const locationId = ({ params: { locationId } }: Params) => {
             </div>
           </div>
         </div>
-        <div className='flex md:flex-wrap gap-4 mb-8'>
-          <div className='w-[33%] md:w-[48%] sm:w-full h-[250px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+        <div className='flex md:flex-wrap gap-4 mb-8 md:hidden'>
+          <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[250px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
             <Image
               src='/Wroclaw_1.png'
               alt='Wrocław zdjęcie'
@@ -87,22 +94,69 @@ const locationId = ({ params: { locationId } }: Params) => {
               style={{ objectFit: "cover" }}
             />
           </div>
-          <div className='w-[33%] md:w-[48%] sm:w-full h-[250px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+          <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[250px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
             <Image
-              src='/Wroclaw_1.png'
+              src='/Wroclaw_2.png'
               alt='Wrocław zdjęcie'
               fill
               objectFit='cover'
+              objectPosition='center'
             />
           </div>
-          <div className='w-[33%] md:w-[48%] sm:w-full h-[250px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+          <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[250px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
             <Image
-              src='/Wroclaw_1.png'
+              src='/Wroclaw_3.png'
               alt='Wrocław zdjęcie'
               fill
               objectFit='cover'
+              objectPosition='center'
             />
           </div>
+        </div>
+        <div className='hidden md:block mb-4'>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={0}
+            slidesPerView={1}
+            autoplay={{
+              delay: 5000,
+            }}
+            loop={true}
+            pagination={{ clickable: true }}
+            draggable={false}>
+            <SwiperSlide>
+              <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[350px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+                <Image
+                  src='/Wroclaw_1.png'
+                  alt='Wrocław zdjęcie'
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[350px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+                <Image
+                  src='/Wroclaw_2.png'
+                  alt='Wrocław zdjęcie'
+                  fill
+                  objectFit='cover'
+                  objectPosition='center'
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[350px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+                <Image
+                  src='/Wroclaw_3.png'
+                  alt='Wrocław zdjęcie'
+                  fill
+                  objectFit='cover'
+                  objectPosition='center'
+                />
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
         <div className='w-full h-auto flex items-center justify-center'>
           <Link
