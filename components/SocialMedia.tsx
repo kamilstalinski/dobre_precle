@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SocialMediaProps } from "@/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSquareFacebook,
+  faSquareInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 const SocialMedia = ({ alignItems, navbarLinks }: SocialMediaProps) => {
   return (
@@ -9,16 +14,16 @@ const SocialMedia = ({ alignItems, navbarLinks }: SocialMediaProps) => {
         alignItems ? alignItems : "end"
       } gap-2`}>
       <Link
-        className='nav__social-link'
+        className='nav__social-link text-text-color hover:text-[#ed8f28] transition-all'
         href='https://www.facebook.com/dobreprecle'
         target='_blank'>
-        <Image src='/FB_icon.svg' alt='Facebook logo' width={26} height={26} />
+        <FontAwesomeIcon className='fa-2x' icon={faSquareFacebook} />
       </Link>
       <Link
-        className='nav__social-link'
+        className='nav__social-link text-text-color hover:text-[#ed8f28] transition-all'
         href='https://www.instagram.com/dobreprecle/'
         target='_blank'>
-        <Image src='/IG_icon.svg' alt='Facebook logo' width={26} height={26} />
+        <FontAwesomeIcon className='fa-2x' icon={faSquareInstagram} />
       </Link>
     </div>
   );

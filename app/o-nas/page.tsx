@@ -4,12 +4,12 @@ const AboutUs = () => {
   return (
     <section>
       <div className='background background before:bg-[url("/precel_o_nas.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center font-bold leading-tight'>
+        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
           O nas
         </h1>
       </div>
       <div className='container mx-auto px-[4%] py-[40px]'>
-        <div className='flex items-center md:flex-col'>
+        <div className='flex items-center md:flex-col' data-aos='fade-up'>
           <div className='w-1/2 md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               DOBRE PRECLE – PRECLE DOBRE Z NATURY
@@ -41,7 +41,9 @@ const AboutUs = () => {
             />
           </div>
         </div>
-        <div className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'>
+        <div
+          className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'>
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               RĘCZNIE FORMOWANE W ÓSEMKI
@@ -67,7 +69,9 @@ const AboutUs = () => {
             />
           </div>
         </div>
-        <div className='flex gap-10 md:flex-col mt-12 items-center'>
+        <div
+          className='flex gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'>
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               ŚWIEŻOŚĆ PROSTO Z PIECA
@@ -94,7 +98,9 @@ const AboutUs = () => {
             />
           </div>
         </div>
-        <div className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'>
+        <div
+          className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'>
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               WYSELEKCJONOWANE SKŁADNIKI
@@ -123,7 +129,9 @@ const AboutUs = () => {
             />
           </div>
         </div>
-        <div className='flex gap-10 md:flex-col mt-12 items-center'>
+        <div
+          className='flex gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'>
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               AUTORSKIE KANAPKI
@@ -167,7 +175,9 @@ const AboutUs = () => {
             />
           </div>
         </div>
-        <div className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'>
+        <div
+          className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'>
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               SŁODKIE NAPOJE

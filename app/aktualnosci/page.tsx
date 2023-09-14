@@ -15,7 +15,7 @@ const page = async () => {
   return (
     <section>
       <div className='background background before:bg-[url("/precel_aktualnosci.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center font-bold leading-tight'>
+        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
           Aktualności
         </h1>
       </div>
@@ -63,7 +63,7 @@ const page = async () => {
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>
-        {posts.map((post: PostTestProps) => {
+        {posts.map((post: PostTestProps, idx) => {
           return <BlogPost post={post} />;
         })}
       </div>

@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Navbar, Footer } from "@/components";
+import { AOSInit } from "@/components/aos";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <AOSInit />
       <link rel='icon' href='/marker_2.svg' sizes='any' />
       <body
         suppressHydrationWarning={true}
