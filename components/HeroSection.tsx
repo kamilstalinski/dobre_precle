@@ -42,12 +42,10 @@ const HeroSection = () => {
         <SwiperSlide>
           <section className='background before:bg-[url("/miasto.png")] w-full h-[40rem] md:h-[25rem]'>
             <div className='container mx-auto px-4 h-full flex flex-col gap-12 items-center justify-center'>
-              <h1 className='text-[75px] lg:text-[60px] md:text-[35px] text-white text-center leading-tight'>
-                Nowy lokal we Wrocławiu
+              <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-white text-center leading-tight'>
+                Pierwszy lokal
                 <br />
-                <span className='text-[#FBE8CF] text-h1 lg:text-h1-tablet md:text-h1-mobile font-bold'>
-                  JUŻ OTWARTY!
-                </span>
+                <span className='text-[#FBE8CF] font-bold'>JUŻ OTWARTY!</span>
               </h1>
               <CustomButton
                 text='CZYTAJ WIĘCEJ'
