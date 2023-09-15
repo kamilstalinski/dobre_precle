@@ -116,7 +116,7 @@ const locationId = ({ params: { locationId } }: Params) => {
         <div className='hidden md:block mb-4'>
           <Swiper
             modules={[Pagination]}
-            spaceBetween={0}
+            spaceBetween={10}
             slidesPerView={1}
             autoplay={{
               delay: 5000,
@@ -125,7 +125,7 @@ const locationId = ({ params: { locationId } }: Params) => {
             pagination={{ clickable: true }}
             draggable={false}>
             <SwiperSlide>
-              <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[350px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+              <div className='w-[33%] md:w-[70%] md:mx-auto sm:w-full h-[400px] lg:h-[350px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
                 <Image
                   src='/Wroclaw_1.png'
                   alt='Wrocław zdjęcie'
@@ -135,7 +135,7 @@ const locationId = ({ params: { locationId } }: Params) => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[350px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+              <div className='w-[33%] md:w-[70%] md:mx-auto sm:w-full h-[400px] lg:h-[350px]  relative border-2 border-white rounded-lg overflow-hidden mb-2'>
                 <Image
                   src='/Wroclaw_2.png'
                   alt='Wrocław zdjęcie'
@@ -146,7 +146,7 @@ const locationId = ({ params: { locationId } }: Params) => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className='w-[33%] md:w-[48%] sm:w-full h-[400px] lg:h-[350px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+              <div className='w-[33%] md:w-[70%] md:mx-auto sm:w-full h-[400px] lg:h-[350px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
                 <Image
                   src='/Wroclaw_3.png'
                   alt='Wrocław zdjęcie'
