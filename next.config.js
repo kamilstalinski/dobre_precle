@@ -2,10 +2,10 @@
 const withExportImages = require("next-export-optimize-images");
 
 const nextConfig = {
-  output: "export",
+  // output: "export",
   reactStrictMode: false,
   images: {
     domains: ["localhost"],
   },
 };
-module.exports = withExportImages(nextConfig);
+module.exports = nextConfig;
