@@ -9,6 +9,15 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700"] });
 export const metadata: Metadata = {
   title: "Dobre Precle",
   description: "DOBRE PRECLE - PRECLE DOBRE Z NATURY",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
