@@ -18,6 +18,13 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  openGraph: {
+    title: "this is open graph title for testing",
+    description: "Some description",
+  },
+  verification: {
+    google: "PASyrcu7rqW0ZlTK9VoMbGz0iB5pkgmYKURm3Wkx7VM",
+  },
 };
 
 export default function RootLayout({
