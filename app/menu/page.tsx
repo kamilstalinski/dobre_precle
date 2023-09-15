@@ -1,4 +1,5 @@
 import Image from "next/image";
+import precle from "../../public/precle_slodkie.png";
 
 const Menu = () => {
   return (
@@ -23,57 +24,60 @@ const Menu = () => {
           </p>
         </div>
       </div>
-      <div className='relative w-full h-[500px] flex flex-col justify-between items-center py-[100px] overflow-hidden'>
-        <p className='w-[407px] text-center'>
-          Przygotowaliśmy szeroki wybór, który obejmuje{" "}
-          <span className='font-bold'>
-            precle suche, z różnorodnymi posypkami
-          </span>{" "}
-          oraz <span className='font-bold'>wyjątkowe precle na słodko,</span>{" "}
-          które są prawdziwą ucztą dla podniebienia.
-        </p>
-        <p className='w-[407px] text-center'>
-          A jeśli szukasz czegoś bardziej sycącego, np. do pracy czy w podróży,
-          to nasze{" "}
-          <span className='font-bold'>
-            precle w autorskiej wersji kanapkowej
-          </span>{" "}
-          będą idealnym rozwiązaniem! Precle autorskie podnoszą standard
-          tradycyjnych przekąsek do wyższego poziomu, odpowiadając na różne
-          gusta smakowe.
-        </p>
-        <div className='w-[30%] xl:w-[35%] h-[40%] absolute top-0 left-0'>
+      <div className='container mx-auto relative w-full h-auto flex flex-col justify-between gap-8 items-center pt-[100px] lg:pt-[70px]'>
+        <div className='flex flex-col justify-between gap-8 z-10'>
+          <p className='w-[407px] sm:w-[335px]  text-center md:text-p-mobile relative'>
+            Przygotowaliśmy szeroki wybór, który obejmuje{" "}
+            <span className='font-bold'>
+              precle suche, z różnorodnymi posypkami
+            </span>{" "}
+            oraz <span className='font-bold'>wyjątkowe precle na słodko,</span>{" "}
+            które są prawdziwą ucztą dla podniebienia.
+          </p>
+          <p className='w-[407px] sm:w-[335px] text-center md:text-p-mobile'>
+            A jeśli szukasz czegoś bardziej sycącego, np. do pracy czy w
+            podróży, to nasze{" "}
+            <span className='font-bold'>
+              precle w autorskiej wersji kanapkowej
+            </span>{" "}
+            będą idealnym rozwiązaniem! Precle autorskie podnoszą standard
+            tradycyjnych przekąsek do wyższego poziomu, odpowiadając na różne
+            gusta smakowe.
+          </p>
+        </div>
+        <div className='w-[800px] md:w-[500px] h-[320px] md:h-[200px] -translate-y-[70px] md:-translate-y-[50px]'>
           <Image
-            src='/precle_suche.png'
-            alt='precle suche'
-            fill
-            objectFit='contain'
-            objectPosition='left'
+            src={precle}
+            alt='precle słodkie'
+            sizes='100vw'
             style={{
-              rotate: "-10deg",
-              scale: 1.3,
-              translate: "-4% 0",
+              width: "100%",
+              height: "auto",
             }}
           />
         </div>
-        <div className='w-[20%] xl:w-[25%] h-[40%] absolute top-[20%] left-[18%] xl:left-[25%]'>
+        <div className='absolute w-[400px] h-[600px] md:w-[270px] -top-[50px] right-0 translate-x-14 lg:translate-x-40 md:translate-x-32 sm:hidden'>
           <Image
-            src='/precle_suche_sol.png'
-            alt='precle suche'
+            src='/precel_suchy_3.png'
+            alt='precle słodkie'
             fill
             objectFit='contain'
           />
         </div>
-        <div className='w-[25%] xl:w-[35%] h-[55%] absolute -top-[10%] right-0'>
+        <div className='absolute w-[300px] h-[300px] md:w-[230px] -top-[30px] md:top-4 left-0 md:-left-32 -translate-x-14 lg:-translate-x-40 md:-translate-x-0 sm:hidden'>
           <Image
-            src='/precle_slodkie.png'
-            alt='precle suche'
+            src='/precel_suchy_1.png'
+            alt='precle słodkie'
             fill
             objectFit='contain'
-            objectPosition='right'
-            style={{
-              transform: "translateX(20%)",
-            }}
+          />
+        </div>
+        <div className='absolute w-[300px] h-[300px] md:w-[230px] top-[180px] md:top-[160px] -left-6 md:-left-24 translate-x-14 lg:-translate-x-16 md:-translate-x-0 sm:hidden'>
+          <Image
+            src='/precel_suchy_2.png'
+            alt='precle słodkie'
+            fill
+            objectFit='contain'
           />
         </div>
       </div>
