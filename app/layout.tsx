@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='pl'>
       <AOSInit />
-      <link rel='icon' href='/marker_2.svg' sizes='any' />
+      <link rel='icon' href='/favicon.ico' sizes='any' />
       <body
         suppressHydrationWarning={true}
         className={`${montserrat.className}`}>
