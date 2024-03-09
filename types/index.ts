@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export interface HamburgerProps {
   isActive: boolean;
   handleActive: () => void;
@@ -11,8 +13,17 @@ export interface ButtonProps {
 }
 
 export interface SocialMediaProps {
-  alignItems?: string;
   navbarLinks: boolean;
+}
+
+export interface MobileMenuProps extends HamburgerProps {
+  menuRef: RefObject<HTMLDivElement>;
+}
+
+export interface BannerProps {
+  path: string;
+  altName: string;
+  children: string | JSX.Element;
 }
 
 interface PostImageAttributes {

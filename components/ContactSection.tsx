@@ -23,8 +23,10 @@ const ContactSection = () => {
               Kontakt
             </h2>
             <div className='flex items-center'>
-              <img
-                className='w-[50px] h-auto -translate-x-1'
+              <Image
+                width={50}
+                height={40}
+                className='-translate-x-1'
                 src='/mail_icon.svg'
                 alt='mail'
               />

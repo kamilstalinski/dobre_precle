@@ -34,13 +34,15 @@ const Footer = () => {
           </div>
           <div>
             <p className='mb-2'>ŚLEDŹ NAS NA:</p>
-            <SocialMedia alignItems='start' navbarLinks={false} />
+            <SocialMedia navbarLinks={false} />
+            <div className='flex flex-col mt-6'>
+              <Link href='/polityka-prywatnosci'>Polityka Prywatności</Link>
+              <Link href='/rodo'>Obowiązek informacyjny RODO</Link>
+            </div>
           </div>
         </div>
       </div>
-      <div className='w-full h-[300px] lg:h-[200px] sm:h-[150px] relative background-footer -z-10'>
-        {/* <Image src='/footer.svg' alt='logo footer' fill /> */}
-      </div>
+      <div className='w-full h-[300px] lg:h-[200px] sm:h-[150px] relative background-footer -z-10'></div>
     </div>
   );
 };

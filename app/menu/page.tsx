@@ -1,14 +1,13 @@
 import Image from "next/image";
 import precle from "../../public/precle_slodkie.png";
+import Banner from "@/components/Banner";
 
 const Menu = () => {
   return (
     <section>
-      <div className='background background before:bg-[url("/precle_menu_1.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
-          Menu
-        </h1>
-      </div>
+      <Banner path='/precle_menu_1.png' altName='Menu'>
+        Menu
+      </Banner>
       <div className='container mx-auto px-[4%]'>
         <div className='container mx-auto px-[4%] w-4/5 md:w-[95%] my-[30px] md:my-[20px] p-[30px] text-center text-white bg-[#EB8C11] rounded-3xl'>
           <h2 className='text-h3 md:text-h3-mobile font-bold mb-4'>
@@ -54,6 +53,7 @@ const Menu = () => {
               width: "100%",
               height: "auto",
             }}
+            priority
           />
         </div>
         <div className='absolute w-[400px] h-[600px] md:w-[270px] -top-[50px] right-0 translate-x-14 lg:translate-x-40 md:translate-x-32 sm:hidden'>
@@ -62,6 +62,7 @@ const Menu = () => {
             alt='precle słodkie'
             fill
             objectFit='contain'
+            priority
           />
         </div>
         <div className='absolute w-[300px] h-[300px] md:w-[230px] -top-[30px] md:top-4 left-0 md:-left-32 -translate-x-14 lg:-translate-x-40 md:-translate-x-0 sm:hidden'>
@@ -78,6 +79,7 @@ const Menu = () => {
             alt='precle słodkie'
             fill
             objectFit='contain'
+            priority
           />
         </div>
       </div>

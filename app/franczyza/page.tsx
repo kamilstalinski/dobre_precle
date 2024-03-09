@@ -1,13 +1,12 @@
+import Banner from "@/components/Banner";
 import Image from "next/image";
 
 const page = () => {
   return (
     <section>
-      <div className='background-franchise before:bg-[url("/franczyza.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
-          Franczyza
-        </h1>
-      </div>
+      <Banner path='/Franczyza.png' altName='Franczyza'>
+        Franczyza
+      </Banner>
       <div className='container mx-auto px-[5%] my-[70px] md:my-[30px] text-center'>
         <h2 className='text-text-color text-[40px] md:text-h1-mobile sm:text-[20px] font-bold -mb-4'>
           Chcesz podjąć z nami współpracę i otworzyć

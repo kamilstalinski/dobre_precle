@@ -6,7 +6,6 @@ import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

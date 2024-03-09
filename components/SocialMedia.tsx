@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { SocialMediaProps } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,12 +6,11 @@ import {
   faSquareInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-const SocialMedia = ({ alignItems, navbarLinks }: SocialMediaProps) => {
+const SocialMedia = ({ navbarLinks }: SocialMediaProps) => {
   return (
     <div
-      className={`${navbarLinks ? "nav__social-links" : ""} h-full flex items-${
-        alignItems ? alignItems : "end"
-      } gap-2`}>
+      className={`${navbarLinks && "nav__social-links h-full items-end"} 
+     flex gap-2`}>
       <Link
         className='nav__social-link text-text-color hover:text-[#ed8f28] transition-all'
         href='https://www.facebook.com/dobreprecle'

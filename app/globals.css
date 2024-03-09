@@ -68,11 +68,11 @@ select:-webkit-autofill:focus {
 /* MAIN PAGE */
 .background {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #00000066;
 }
 .background-franchise {
   position: relative;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .background::before {

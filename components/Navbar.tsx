@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Lato } from "next/font/google";
 import { Hamburger, SocialMedia } from "@/components";
 import { links } from "@/constants";
+import MobileMenu from "./MobileMenu";
 
 const lato = Lato({ weight: ["400", "700"], subsets: ["latin"] });
 
@@ -15,6 +16,12 @@ const Navbar = () => {
   const [visible, setVisible] = useState<boolean>(true);
 
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    isActive
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "visible");
+  }, [isActive]);
 
   const handleActive = () => {
     setIsActive((prevActive) => !prevActive);
@@ -48,18 +55,12 @@ const Navbar = () => {
     return () => {
       document.removeEventListener("click", handleMenuClick);
     };
-  });
+  }, [isActive]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
-
-  useEffect(() => {
-    isActive
-      ? (document.body.style.overflowY = "hidden")
-      : (document.body.style.overflowY = "visible");
-  }, [isActive]);
 
   return (
     <div
@@ -86,34 +87,11 @@ const Navbar = () => {
         </div>
         <SocialMedia navbarLinks={true} />
         <Hamburger isActive={isActive} handleActive={handleActive} />
-        <div
-          ref={menuRef}
-          className={`nav__mobilemenu z-[9999] w-4/6 h-screen bg-[#FBE8CF] absolute top-0 transition-[left] duration-500 ${
-            isActive ? "left-0" : "-left-full"
-          }`}>
-          <div className='nav__links-mobile h-screen px-4 pb-4 pt-[130px] flex flex-col justify-between'>
-            <div>
-              <ul className='text-[#971C25] mb-4'>
-                {links.map((link, i) => (
-                  <li
-                    onClick={handleActive}
-                    key={i}
-                    className='nav__link mt-2 text-[18px]'>
-                    <Link href={link.href}>{link.title}</Link>
-                  </li>
-                ))}
-              </ul>
-              <SocialMedia alignItems='top' navbarLinks={false} />
-            </div>
-            <div className='flex flex-col mt-4 text-text-color text-[14px]'>
-              <Link href='/polityka-prywatnosci'>Polityka Prywatności</Link>
-              <Link href='/rodo'>Obowiązek informacyjny RODO</Link>
-              <p className='mt-2 text-[12px]'>
-                ©{new Date().getFullYear()} Dobre Precle
-              </p>
-            </div>
-          </div>
-        </div>
+        <MobileMenu
+          isActive={isActive}
+          handleActive={handleActive}
+          menuRef={menuRef}
+        />
       </nav>
     </div>
   );

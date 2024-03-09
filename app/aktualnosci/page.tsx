@@ -1,27 +1,17 @@
 import { BlogPost } from "@/components";
-import { PostProps, PostTestProps } from "@/types";
+import { PostTestProps } from "@/types";
 import { posts } from "@/constants";
-
-// const getPosts = async () => {
-//   const data = await fetch("http://localhost:1337/api/blogs?populate=*");
-//   const posts = await data.json();
-
-//   return posts;
-// };
+import Banner from "@/components/Banner";
 
 const page = async () => {
-  // const posts = await getPosts();
-
   return (
     <section>
-      <div className='background background before:bg-[url("/precel_aktualnosci.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
-          Aktualności
-        </h1>
-      </div>
+      <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
+        Aktualności
+      </Banner>
       <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
         <h2 className='text-text-color text-[50px] md:text-h1-mobile sm:text-[30px] font-bold -mb-4'>
-          Czujesz nasze PRECLOWE LOVE?
+          LEGENDY ZOSTAJĄ
         </h2>
         <h3 className='text-text-color text-[35px] md:text-h1-mobile sm:text-[30px] font-bold mb-3'>
           Legendy głoszą, że…

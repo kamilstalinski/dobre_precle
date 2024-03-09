@@ -1,13 +1,12 @@
+import Banner from "@/components/Banner";
 import Image from "next/image";
 
 const AboutUs = () => {
   return (
     <section>
-      <div className='background background before:bg-[url("/precel_o_nas.png")]  w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
-        <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight'>
-          O nas
-        </h1>
-      </div>
+      <Banner path='/precel_o_nas.png' altName='Precle o nas'>
+        O nas
+      </Banner>
       <div className='container mx-auto px-[4%] py-[40px]'>
         <div className='flex items-center md:flex-col' data-aos='fade-up'>
           <div className='w-1/2 md:w-full px-12 md:px-0'>
