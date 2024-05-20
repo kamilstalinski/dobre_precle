@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "this is open graph title for testing",
-    description: "Some description",
+    title: "Dobre Precle",
+    description: "DOBRE PRECLE - PRECLE DOBRE Z NATURY",
   },
   verification: {
     google: "PASyrcu7rqW0ZlTK9VoMbGz0iB5pkgmYKURm3Wkx7VM",
@@ -38,7 +38,8 @@ export default function RootLayout({
       <link rel='icon' href='/favicon.ico' sizes='any' />
       <body
         suppressHydrationWarning={true}
-        className={`${montserrat.className}`}>
+        className={`${montserrat.className}`}
+      >
         <Navbar />
         {children}
         <Footer />

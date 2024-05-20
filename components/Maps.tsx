@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import { locations, mapStyles } from "@/constants";
 
 const Maps = () => {
   const { isLoaded } = useLoadScript({
@@ -27,15 +27,22 @@ const Maps = () => {
       <GoogleMap
         mapContainerStyle={{ width: "100%", height: "100%" }}
         center={center}
-        zoom={6.4}>
-        <Marker
-          position={{ lat: 51.107883, lng: 17.038538 }}
-          icon={{
-            url: "/marker.svg",
-            scaledSize: new window.google.maps.Size(80, 80),
-          }}
-          onClick={() => (window.location.href = "lokalizacje/wroclaw")}
-        />
+        zoom={6.4}
+        options={{ styles: mapStyles }}
+      >
+        {locations.map((location) => (
+          <Marker
+            position={{ lat: location.lat, lng: location.lng }}
+            icon={{
+              url: "/marker.svg",
+              scaledSize: new window.google.maps.Size(80, 80),
+            }}
+            onClick={() =>
+              (window.location.href = `lokalizacje/${location.id}`)
+            }
+            key={location.id}
+          />
+        ))}
       </GoogleMap>
     </div>
   );

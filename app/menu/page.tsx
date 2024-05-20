@@ -16,10 +16,10 @@ const Menu = () => {
           <p className='text-p md:text-p-mobile'>
             Oto on, nasz{" "}
             <span className='font-bold'>król przekąsek, DOBRY PRECEL!</span>{" "}
-            Dobre Precle wypiekamy na miejscu, serwując Ci zawsze świeże precle
-            podawane samodzielnie, a także w formie smacznych autorskich kanapek
-            na zimno lub w wersji zapiekanej. Na każdą okazję, zarówno na mały,
-            jak i duży głód, znajdziemy dla Ciebie odpowiedniego precla.
+            Dobre Precle wypiekamy na miejscu, serwując Ci zawsze tradycyjną
+            przekąskę z solą, ziarnami, serem lub nasze autorskie precle
+            nadziewane! Na każdą okazję, zarówno na mały, jak i duży głód,
+            znajdziemy dla Ciebie odpowiedniego precla.
           </p>
         </div>
       </div>
@@ -30,21 +30,18 @@ const Menu = () => {
             <span className='font-bold'>
               precle suche, z różnorodnymi posypkami
             </span>{" "}
-            oraz <span className='font-bold'>wyjątkowe precle na słodko,</span>{" "}
+            oraz{" "}
+            <span className='font-bold'>
+              wyjątkowe precle nadziewane na słodko lub słono,
+            </span>{" "}
             które są prawdziwą ucztą dla podniebienia.
           </p>
           <p className='w-[407px] sm:w-[335px] text-center md:text-p-mobile'>
-            A jeśli szukasz czegoś bardziej sycącego, np. do pracy czy w
-            podróży, to nasze{" "}
-            <span className='font-bold'>
-              precle w autorskiej wersji kanapkowej
-            </span>{" "}
-            będą idealnym rozwiązaniem! Precle autorskie podnoszą standard
-            tradycyjnych przekąsek do wyższego poziomu, odpowiadając na różne
-            gusta smakowe.
+            Nadziewane precle autorskie podnoszą standard tradycyjnych przekąsek
+            do wyższego poziomu, odpowiadając na różne gusta smakowe.
           </p>
         </div>
-        <div className='w-[800px] md:w-[500px] h-[320px] md:h-[200px] -translate-y-[70px] md:-translate-y-[50px]'>
+        <div className='w-[800px] md:w-[500px] h-[320px] md:h-[200px] -translate-y-[50px] md:-translate-y-[50px]'>
           <Image
             src={precle}
             alt='precle słodkie'

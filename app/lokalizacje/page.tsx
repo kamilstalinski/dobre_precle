@@ -31,7 +31,7 @@ const Locations = () => {
             <br />
             <br />
             Pasjonuje nas odkrywanie nowych miejsc, a nasza preclowa mapa wciąż
-            sięrozrasta, przyciągając coraz więcejsmakoszy precli. Chcemy być
+            sięrozrasta, przyciągając coraz więcej smakoszy precli. Chcemy być
             blisko Ciebie, abyś mógł cieszyć się naszymi pysznymi i autorskimi
             preclowymi kompozycjami w zasięgu ręki.
             <br />

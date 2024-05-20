@@ -11,7 +11,7 @@ const page = async () => {
       </Banner>
       <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
         <h2 className='text-text-color text-[50px] md:text-h1-mobile sm:text-[30px] font-bold -mb-4'>
-          LEGENDY ZOSTAJĄ
+          Czujesz nasze PRECLOWE LOVE?
         </h2>
         <h3 className='text-text-color text-[35px] md:text-h1-mobile sm:text-[30px] font-bold mb-3'>
           Legendy głoszą, że…
@@ -42,20 +42,24 @@ const page = async () => {
           ramiona.
         </p>
         <p className='md:text-p-mobile'>
-          To nie legenda, że Dobre Precle możesz już zjeść we Wrocławiu – to
-          fakt! Kto spróbuje, ten zrozumie, skąd się wzięła popularność tego
-          wypieku. Precle mają swoich fanów na całym świecie i często spożywane
-          są jako samodzielna przekąska lub w formie kanapki. Teraz dotarły do
-          nas – już wkrótce czekają nas wielkie otwarcia w Katowicach,
-          Gliwicach, Krakowie i Bydgoszczy. Przygotuj się na prawdziwą preclową
-          ucztę, pełną smaku i tradycji! Zapraszamy na Dobre Precle do naszych
-          lokali na terenie całej Polski (już niedługo).
+          To nie legenda, że Dobre Precle możesz zjeść już m.in. we Wrocławiu,
+          Gliwicach, Bydgoszczy, Krakowie. I wciąż otwieramy się w kolejnych
+          miastach!
+          <br />
+          <br />
+          Kto raz spróbuje naszych precli, ten zrozumie, skąd się wzięła
+          popularność tych wypieków. Precle mają swoich fanów na całym świecie.
+          Przygotuj się na prawdziwą preclową ucztę pełną smaku i tradycji.
+          Zapraszamy na Dobre Precle do naszych piekarni.
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>
-        {posts.map((post: PostTestProps, idx) => {
-          return <BlogPost post={post} />;
-        })}
+        {posts
+          .slice(0)
+          .reverse()
+          .map((post: PostTestProps, idx) => {
+            return <BlogPost post={post} />;
+          })}
       </div>
     </section>
   );

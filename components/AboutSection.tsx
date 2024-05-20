@@ -18,7 +18,8 @@ const AboutSection = () => {
         <div className='w-3/5 md:w-full'>
           <h2
             className='text-h2 md:text-h2-mobile font-bold'
-            data-aos='fade-left'>
+            data-aos='fade-left'
+          >
             O nas
           </h2>
           <p className='text-h3 md:text-h3-mobile' data-aos='fade-left'>
@@ -26,7 +27,8 @@ const AboutSection = () => {
           </p>
           <p
             className='text-p md:text-p-mobile md:w-full mt-6'
-            data-aos='fade-left'>
+            data-aos='fade-left'
+          >
             Jak powstały DOBRE PRECLE? Dawno, dawno temu nasz właściciel
             podróżował po różnych zakątkach świata, takich jak Bawaria, Francja
             i Włochy - to właśnie tam odkrył ten DOBRY i wyjątkowy przysmak.
@@ -35,7 +37,7 @@ const AboutSection = () => {
             <div className='md:w-1/2'>
               <Image
                 className='z-[100] rounded-lg'
-                src='/kanapka_ser.png'
+                src='/precle_strona_glowna_1.png'
                 alt='kanapka z serem'
                 width={370}
                 height={169}
@@ -44,7 +46,7 @@ const AboutSection = () => {
             <div className='md:w-1/2'>
               <Image
                 className='-translate-x-10 md:-translate-x-2 translate-y-10 md:translate-y-5 rounded-lg'
-                src='/precle_piec.png'
+                src='/precle_strona_glowna_2.png'
                 alt='precle z pieca'
                 width={370}
                 height={169}
@@ -55,8 +57,8 @@ const AboutSection = () => {
         <div className='w-1/2 md:hidden'>
           <Image
             className='top-0 lg:top-0 right-0 xl:w-[50%]'
-            src='/precle_deska.png'
-            alt='precle na desce'
+            src='/precle_torebka.png'
+            alt='precle z torebki'
             width={617}
             height={938}
             style={{ position: "absolute" }}

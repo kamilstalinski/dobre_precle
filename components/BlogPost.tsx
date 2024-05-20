@@ -8,7 +8,8 @@ const BlogPost = ({ post }: BlogPostTestProps) => {
     <div
       key={post.index}
       className='w-full flex md:flex-col justify-center  gap-[5%] mb-12'
-      data-aos={post.index % 2 === 1 ? "fade-right" : "fade-left"}>
+      data-aos={post.index % 2 === 1 ? "fade-right" : "fade-left"}
+    >
       <div className='w-[40%] md:w-full min-h-[350px] relative mb-4'>
         <Image
           src={post.PostImage}
@@ -29,9 +30,9 @@ const BlogPost = ({ post }: BlogPostTestProps) => {
           </h2>
           <p className='md:text-p-mobile'>{post.PostText}</p>
         </div>
-        <p className='text-[12px]  opacity-50 text-right'>
+        {/* <p className='text-[12px]  opacity-50 text-right'>
           Dodano: {post.PostDate}
-        </p>
+        </p> */}
       </div>
     </div>
   );

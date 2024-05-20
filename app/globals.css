@@ -115,7 +115,7 @@ select:-webkit-autofill:focus {
 }
 
 .background-menu {
-  background-image: url("/hero-bg.png");
+  background-image: url("/hero-bg.jpg");
   background-size: cover;
   background-position: center;
 }

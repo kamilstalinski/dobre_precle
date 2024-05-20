@@ -42,7 +42,8 @@ const AboutUs = () => {
         </div>
         <div
           className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
-          data-aos='fade-up'>
+          data-aos='fade-up'
+        >
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               RĘCZNIE FORMOWANE W ÓSEMKI
@@ -52,8 +53,7 @@ const AboutUs = () => {
               ósemki, a następnie poddawane powolnemu procesowi wzrostu w
               komorze rozrostu, czyli tzw. garowniku. Dobre Precle muszą być
               następnie dobrze upieczone, aby nabrały rumieńców i wyjątkowego
-              charakteru. Każdy precel jest starannie przygotowywany, na Twoich
-              oczach.
+              charakteru.
             </p>
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
@@ -70,7 +70,8 @@ const AboutUs = () => {
         </div>
         <div
           className='flex gap-10 md:flex-col mt-12 items-center'
-          data-aos='fade-up'>
+          data-aos='fade-up'
+        >
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               ŚWIEŻOŚĆ PROSTO Z PIECA
@@ -78,16 +79,16 @@ const AboutUs = () => {
             <p className='text-p md:text-p-mobile'>
               Precle są zawsze świeże, prosto z pieca. Bez względu na Twój
               nastrój, mamy dla Ciebie precla na dobry dzień. Suche precle,
-              posypane różnymi dodatkami, słodkie wersje czy autorskie kanapki…
-              wszystkie precle są oryginalne, ale łączy je jedno –
-              charakterystyczna skórka, która jest chrupiąca na zewnątrz i
-              miękka w środku. Dbamy o to, aby nasze precle były świeżo
-              upieczone i dobrze zarumienione!
+              posypane różnymi dodatkami, nadziewane precle na słodko lub pełne
+              smaku przekąski w wersji wytrawnej… Wszystkie precle są
+              oryginalne, ale łączy je jedno – charakterystyczna skórka, która
+              jest chrupiąca na zewnątrz i miękka w środku. Dbamy o to, aby
+              nasze precle były świeżo upieczone i dobrze zarumienione!
             </p>
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/precle_piec_2.png'
+              src='/precle_piec.png'
               alt='precle'
               width={2000}
               height={1333}
@@ -99,7 +100,8 @@ const AboutUs = () => {
         </div>
         <div
           className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
-          data-aos='fade-up'>
+          data-aos='fade-up'
+        >
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               WYSELEKCJONOWANE SKŁADNIKI
@@ -130,41 +132,36 @@ const AboutUs = () => {
         </div>
         <div
           className='flex gap-10 md:flex-col mt-12 items-center'
-          data-aos='fade-up'>
+          data-aos='fade-up'
+        >
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
-              AUTORSKIE KANAPKI
+              PRECLE NADZIEWANE
             </h2>
             <p className='text-p md:text-p-mobile'>
-              W naszym menu główną rolę odgrywają przepyszne precle i rogale w
-              różnych wersjach smakowych (sezam, mak, mak z sezamem i solą
-              morską, masło czosnkowe). Z pasji do precli na ich bazie
-              stworzyliśmy oryginalne, autorskie kanapki.
+              W naszym menu oprócz tradycyjnych precli, znajdziesz również
+              precle nadziewane z różnymi polewami. Mamy dla ciebie smaczne
+              precle wytrawne w wielu smakach m.in. mozzarella z makiem,
+              czosnkiem lub słonecznikiem, która z pewnością przypadnie do gustu
+              wielbicielom ciągnącego się sera. Amatorzy pikantnych przekąsek
+              również znajdą u nas coś dobrego dla siebie: salami pikantne czy
+              precle BBQ zadowolą każde podniebienie.
               <br />
-              <br /> W szerokiej gamie precli znajdziesz kilkanaście
-              różnorodnych kompozycji, w tym słodkie klasyki z dodatkiem
-              czekolady, orzechów lub wiórków kokosowych. Ponadto proponujemy
-              unikalne kompozycje kanapkowe, które zawierają takie składniki jak
-              np.: soczyste brzoskwinie, winogrona, szynkę parmeńską, kapary,
-              świeże sałaty, rukolę, a także salami, ser, papryczki chilli czy
-              pomidory.W szerokiej gamie precli znajdziesz kilkanaście
-              różnorodnych kompozycji, w tym słodkie klasyki z dodatkiem
-              czekolady, orzechów lub wiórków kokosowych. Ponadto proponujemy
-              unikalne kompozycje kanapkowe, które zawierają takie składniki jak
-              np.: soczyste brzoskwinie, winogrona, szynkę parmeńską, kapary,
-              świeże sałaty, rukolę, a także salami, ser, papryczki chilli czy
-              pomidory.
+              <br /> Jeśli preferujesz precle w wersji wegetariańskiej, spróbuj
+              naszych propozycji: pesto z pomidorami i mozzarellą, szpinak z
+              czosnkiem, mozzarella z twarogiem i koperkiem i wiele innych.
               <br />
-              <br /> Nasze preclowe kanapki doskonale sprawdzają się zarówno w
-              wersjach na ciepło, jak i na zimno. Bez względu na to, czy jesteś
-              miłośnikiem mięsa, czy preferujesz wegetariańską lub wegańską
-              dietę, z pewnością znajdziesz u nas coś dla siebie, ponieważ
-              oferujemy różne propozycje dla smakoszy.
+              <br /> Uwaga miłośnicy słodkości! Szykujcie się na prawdziwą
+              preclową ucztę! Biała czekolada z kokosem, wiśnia z czarną
+              czekoladą, jabłko z cynamonem, banan z mleczną czekoladą – a to
+              jeszcze nie wszystkie smaki, które dla Ciebie mamy! Ciężko im się
+              oprzeć, na szczęście nie musisz tego robić! Spróbuj swoich
+              ulubionych precli!
             </p>
           </div>
           <div className='w-1/2 md:w-full max-h-[680px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/autorskie_kanapki.png'
+              src='/autorskie_precle.png'
               alt='precle'
               width={2000}
               height={1333}
@@ -176,7 +173,8 @@ const AboutUs = () => {
         </div>
         <div
           className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
-          data-aos='fade-up'>
+          data-aos='fade-up'
+        >
           <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
             <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
               SŁODKIE NAPOJE

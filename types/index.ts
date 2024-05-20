@@ -133,3 +133,18 @@ export interface PostTestProps {
 export interface BlogPostTestProps {
   post: PostTestProps;
 }
+
+export interface LocationProps {
+  index: number;
+  id: string;
+  city: string;
+  address: string[];
+  street: string;
+  image: string;
+  tel: string;
+  hours: string[];
+  lat: number;
+  lng: number;
+  additional?: string;
+  gallery: string[];
+}
