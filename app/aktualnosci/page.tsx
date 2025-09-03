@@ -1,9 +1,87 @@
-import { BlogPost } from "@/components";
-import { PostTestProps } from "@/types";
-import { posts } from "@/constants";
-import Banner from "@/components/Banner";
+"use client";
 
-const page = async () => {
+import { useState, useEffect } from "react";
+import { BlogPost, Banner, Loader } from "@/components";
+import { client } from "@/lib/contentful/client";
+
+interface PostType {
+  title: string;
+  content: string;
+  image?: string;
+  date: string;
+  slug: string;
+}
+
+const page = () => {
+  const [posts, setPosts] = useState<PostType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const response = await client.getEntries({
+          content_type: "post",
+          include: 2,
+        });
+
+        const fetchedPosts = response.items.map((item: any) => item.fields);
+
+        setPosts(fetchedPosts);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+        console.error("Error fetching posts:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section>
+        <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
+          Aktualności
+        </Banner>
+        <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
+          <div className='flex justify-center items-center min-h-[400px]'>
+            <div className='text-center'>
+              <Loader size='lg' className='mb-4' />
+              <p className='text-gray-600'>Ładowanie aktualności...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <section>
+        <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
+          Aktualności
+        </Banner>
+        <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
+          <div className='flex justify-center items-center min-h-[400px]'>
+            <div className='text-center'>
+              <p className='text-red-600 mb-4'>
+                Błąd podczas ładowania aktualności
+              </p>
+              <p className='text-gray-600 text-sm'>{error}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section>
       <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
@@ -36,7 +114,7 @@ const page = async () => {
           charakterystyczny wygląd.
         </p>
         <p className='mb-12 md:text-p-mobile'>
-          3. Ciekawostką jest również pochodzenie nazwy „precel”, która wywodzi
+          3. Ciekawostką jest również pochodzenie nazwy „precel", która wywodzi
           się z łaciny i oznacza &quot;małe ramionka&quot;. To odniesienie do
           charakterystycznego kształtu precla, który przypomina splecione
           ramiona.
@@ -54,12 +132,9 @@ const page = async () => {
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>
-        {posts
-          .slice(0)
-          .reverse()
-          .map((post: PostTestProps, idx) => {
-            return <BlogPost post={post} />;
-          })}
+        {posts.map((post: any, idx: number) => {
+          return <BlogPost key={idx} post={post} />;
+        })}
       </div>
     </section>
   );

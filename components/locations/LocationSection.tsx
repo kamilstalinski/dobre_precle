@@ -1,4 +1,4 @@
-import CustomButton from "./CustomButton";
+import { CustomButton } from "@/components";
 import Image from "next/image";
 
 const LocationSection = () => {
@@ -7,7 +7,8 @@ const LocationSection = () => {
       <div className='relative overflow-hidden flex  h-[48rem] md:h-[30rem] '>
         <div
           className='h-full flex items-center absolute right-[100%]'
-          data-aos='fade-up'>
+          data-aos='fade-up'
+        >
           <Image
             className='top-[12%] -left-[6%] -rotate-[55deg]'
             src='/precel_suchy.png'
@@ -20,17 +21,20 @@ const LocationSection = () => {
           <div>
             <h2
               className='text-h2 md:text-h2-mobile font-bold text-[#FBE8CF]'
-              data-aos='fade-right'>
+              data-aos='fade-right'
+            >
               Lokalizacje
             </h2>
             <p
               className='text-h3 md:text-h3-mobile text-white'
-              data-aos='fade-right'>
+              data-aos='fade-right'
+            >
               KOMU W DROGĘ, TEMU... DOBRE&nbsp;PRECLE!
             </p>
             <p
               className='text-p md:text-p-mobile md:w-full text-white'
-              data-aos='fade-right'>
+              data-aos='fade-right'
+            >
               Dołącz do poszukiwaczy smaku DOBRYCH PRECLI na terenie całej
               Polski
             </p>

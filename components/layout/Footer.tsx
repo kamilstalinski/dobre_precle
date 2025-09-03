@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import SocialMedia from "./SocialMedia";
+import { SocialMedia } from "@/components";
 import { links } from "@/constants";
 
 const Footer = () => {
@@ -21,10 +21,10 @@ const Footer = () => {
             <br />
             NIP: 5130282896
             <br />
-            KRS: 000100998
+            KRS: 0001009998
           </p>
           <div className='h-full'>
-            <ul className=''>
+            <ul>
               {links.map((link, i) => (
                 <li key={i}>
                   <Link href={link.href}>{link.title}</Link>
@@ -34,10 +34,10 @@ const Footer = () => {
           </div>
           <div>
             <p className='mb-2'>ŚLEDŹ NAS NA:</p>
-            <SocialMedia navbarLinks={false} />
+            <SocialMedia navbarLinks={false} footerLinks={true} />
             <div className='flex flex-col mt-6'>
               <Link href='/polityka-prywatnosci'>Polityka Prywatności</Link>
-              <Link href='/rodo'>Obowiązek informacyjny RODO</Link>
+              {/* <Link href='/rodo'>Obowiązek informacyjny RODO</Link> */}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import precle from "../../public/precle_slodkie.png";
-import Banner from "@/components/Banner";
+import { Banner } from "@/components";
 
 const Menu = () => {
   return (

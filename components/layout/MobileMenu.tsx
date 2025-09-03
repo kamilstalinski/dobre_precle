@@ -1,6 +1,6 @@
 import { links } from "@/constants";
 import Link from "next/link";
-import SocialMedia from "./SocialMedia";
+import { SocialMedia } from "@/components";
 import { MobileMenuProps } from "@/types";
 import { useEffect } from "react";
 
@@ -16,7 +16,8 @@ const MobileMenu = ({ menuRef, isActive, handleActive }: MobileMenuProps) => {
       ref={menuRef}
       className={`nav__mobilemenu z-[9999] w-4/6 h-[100dvh] bg-[#FBE8CF] absolute top-0 transition-[left] duration-500 ${
         isActive ? "left-0" : "-left-full"
-      }`}>
+      }`}
+    >
       <div className='nav__links-mobile h-full px-4 pb-4 pt-[130px] flex flex-col justify-between'>
         <div>
           <ul className='text-[#971C25] mb-4'>
@@ -24,12 +25,13 @@ const MobileMenu = ({ menuRef, isActive, handleActive }: MobileMenuProps) => {
               <li
                 onClick={handleActive}
                 key={i}
-                className='nav__link mt-2 text-[18px]'>
+                className='nav__link mt-2 text-[18px]'
+              >
                 <Link href={link.href}>{link.title}</Link>
               </li>
             ))}
           </ul>
-          <SocialMedia navbarLinks={false} />
+          <SocialMedia navbarLinks={false} footerLinks={true} />
         </div>
         <div className='flex flex-col mt-4 text-text-color text-[14px]'>
           <Link href='/polityka-prywatnosci'>Polityka Prywatności</Link>

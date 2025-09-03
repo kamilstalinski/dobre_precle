@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ContactForm from "./ContactForm";
+import { ContactForm } from "@/components";
 
 const ContactSection = () => {
   return (
@@ -44,7 +44,7 @@ const ContactSection = () => {
               <br />
               NIP: 5130282896
               <br />
-              KRS: 000100998
+              KRS: 0001009998
             </p>
           </div>
           <div className='w-1/2 sm:w-full'>

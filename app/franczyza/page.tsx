@@ -1,10 +1,14 @@
-import Banner from "@/components/Banner";
+import { Banner } from "@/components";
 import Image from "next/image";
 
+import { redirect } from "next/navigation";
+
 const page = () => {
+  if (process.env.NODE_ENV === "production") redirect("/not-found");
+
   return (
     <section>
-      <Banner path='/Franczyza.png' altName='Franczyza'>
+      <Banner path='/franczyza.png' altName='franczyza'>
         Franczyza
       </Banner>
       <div className='container mx-auto px-[5%] my-[70px] md:my-[30px] text-center'>

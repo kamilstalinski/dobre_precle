@@ -1,0 +1,221 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { AllergenProduct, Banner, Loader } from "@/components";
+import { client } from "@/lib/contentful/client";
+
+interface AllergenProductType {
+  title: string;
+  image: string;
+  pretzelType: string;
+  energyValuePer100: string;
+  energyValuePerPortion: string;
+  fatPer100: string;
+  fatPerPortion: string;
+  saturatedFatPer100: string;
+  saturatedFatPerPortion: string;
+  carbohydratesPer100: string;
+  carbohydratesPerPortion: string;
+  sugarsPer100: string;
+  sugarsPerPortion: string;
+  fiberPer100: string;
+  fiberPerPortion: string;
+  proteinPer100: string;
+  proteinPerPortion: string;
+  saltPer100: string;
+  saltPerPortion: string;
+}
+
+// Helper function to normalize pretzel type
+const normalizePretzelType = (pretzelType: any): string => {
+  if (Array.isArray(pretzelType)) {
+    const firstValue = pretzelType[0];
+    if (firstValue === "Precle Klasyczne") return "klasyczne";
+    if (firstValue === "Precle nadziewane na słono") return "slone";
+    if (firstValue === "Precle nadziewane na słodko") return "slodkie";
+    return "klasyczne";
+  }
+  if (typeof pretzelType === "string") {
+    return pretzelType;
+  }
+  return "klasyczne";
+};
+
+const page = () => {
+  const [allergenProducts, setAllergenProducts] = useState<
+    AllergenProductType[]
+  >([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const pdfFilePath = "/wykaz-alergenow-dobre-precle.pdf";
+
+  useEffect(() => {
+    const fetchAllergenProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const response = await client.getEntries({
+          content_type: "11PNRJYH3Rz6RFkFgWH9EU",
+          include: 2,
+        });
+
+        const products = response.items.map((item: any) => {
+          const fields = item.fields;
+          return {
+            title: fields.title || "",
+            image: fields.image?.fields?.file?.url
+              ? `https:${fields.image.fields.file.url}`
+              : "",
+            pretzelType: normalizePretzelType(fields.pretzelType),
+            energyValuePer100: fields.energyValuePer100 || "",
+            energyValuePerPortion: fields.energyValuePerPortion || "",
+            fatPer100: fields.fatPer100 || "",
+            fatPerPortion: fields.fatPerPortion || "",
+            saturatedFatPer100: fields.saturatedFatPer100 || "",
+            saturatedFatPerPortion: fields.saturatedFatPerPortion || "",
+            carbohydratesPer100: fields.carbohydratesPer100 || "",
+            carbohydratesPerPortion: fields.carbohydratesPerPortion || "",
+            sugarsPer100: fields.sugarsPer100 || "",
+            sugarsPerPortion: fields.sugarsPerPortion || "",
+            fiberPer100: fields.fiberPer100 || "",
+            fiberPerPortion: fields.fiberPerPortion || "",
+            proteinPer100: fields.proteinPer100 || "",
+            proteinPerPortion: fields.proteinPerPortion || "",
+            saltPer100: fields.saltPer100 || "",
+            saltPerPortion: fields.saltPerPortion || "",
+          };
+        });
+
+        setAllergenProducts(products);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+        console.error("Error fetching allergen products:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllergenProducts();
+  }, []);
+
+  // Group products by pretzel type
+  const groupedProducts = allergenProducts.reduce((acc, product) => {
+    const type = product.pretzelType || "klasyczne";
+    if (!acc[type]) {
+      acc[type] = [];
+    }
+    acc[type].push(product);
+    return acc;
+  }, {} as Record<string, typeof allergenProducts>);
+
+  // Category titles mapping
+  const categoryTitles = {
+    klasyczne: "Precle Klasyczne",
+    slone: "Precle nadziewane na słono",
+    slodkie: "Precle nadziewane na słodko",
+  };
+
+  // Category order
+  const categoryOrder = ["klasyczne", "slone", "slodkie"];
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section>
+        <Banner path='/precel_aktualnosci.png' altName='Precle alergeny'>
+          Alergeny
+        </Banner>
+        <div className='container mx-auto px-[5%] mt-[50px] mb-[40px] md:my-[30px]'>
+          <div className='flex justify-center items-center min-h-[400px]'>
+            <div className='text-center'>
+              <Loader size='lg' className='mb-4' />
+              <p className='text-gray-600'>Ładowanie danych...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <section>
+        <Banner path='/precel_aktualnosci.png' altName='Precle alergeny'>
+          Alergeny
+        </Banner>
+        <div className='container mx-auto px-[5%] mt-[50px] mb-[40px] md:my-[30px]'>
+          <div className='flex justify-center items-center min-h-[400px]'>
+            <div className='text-center'>
+              <p className='text-red-600 mb-4'>Błąd podczas ładowania danych</p>
+              <p className='text-gray-600 text-sm'>{error}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section>
+      <Banner path='/precel_aktualnosci.png' altName='Precle alergeny'>
+        Alergeny
+      </Banner>
+
+      <div className='container mx-auto px-[4%] mt-[50px] mb-[40px] md:my-[30px]'>
+        <h4 className='text-black text-[21px] md:text-p-mobile sm:text-[20px] font-bold mb-4'>
+          Szczegółowe informacje o alergenach w naszych produktach
+        </h4>
+        <p className='mb-4 md:text-p-mobile'>
+          W DOBRE PRECLE dbamy o bezpieczeństwo naszych klientów. Poniżej
+          znajdziesz szczegółowe informacje o alergenach zawartych w każdym z
+          naszych produktów. Informacje te są aktualizowane na bieżąco i
+          odpowiadają rzeczywistemu składowi naszych wyrobów.
+        </p>
+        <p className=' md:text-p-mobile'>
+          Wszystkie nasze precle są przygotowywane w tej samej piekarni, dlatego
+          istnieje ryzyko zanieczyszczenia krzyżowego alergenami. Jeśli masz
+          alergię pokarmową, zalecamy konsultację z personelem przed zakupem.
+        </p>
+      </div>
+      <div className='bg-[#ed8f28] my-8'>
+        <div className='container mx-auto px-[4%] py-4 flex flex-row items-center justify-between gap-3'>
+          <p className='text-white font-semibold md:text-p-mobile'>
+            WYKAZ ALERGENÓW ZAWARTYCH
+            <br />W PRODUKTACH DOBRE PRECLE
+          </p>
+          <a
+            href={pdfFilePath}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='inline-flex items-center justify-center gap-2 bg-[#971C25] hover:bg-[#7f1a22] text-white font-semibold px-6 py-3 rounded-lg transition-colors md:text-p-mobile'
+          >
+            Zobacz PDF
+          </a>
+        </div>
+      </div>
+      <div className='container mx-auto px-[4%]'>
+        {categoryOrder.map((category) => {
+          const products = groupedProducts[category];
+          if (!products || products.length === 0) return null;
+
+          return (
+            <div key={category} className='mb-12'>
+              <h2 className='text-[40px] lg:text-[25px] font-bold text-[#8B0000] mb-6 text-center uppercase'>
+                {categoryTitles[category as keyof typeof categoryTitles]}
+              </h2>
+              <div className='space-y-8'>
+                {products.map((product, idx: number) => (
+                  <AllergenProduct key={idx} product={product} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+export default page;

@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { Navbar, Footer } from "@/components";
-import { AOSInit } from "@/components/aos";
+import { AOSInit } from "@/components";
+import { Footer, Navbar, CookieConsent } from "@/components";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -35,13 +35,13 @@ export default function RootLayout({
   return (
     <html lang='pl'>
       <AOSInit />
-      <link rel='icon' href='/favicon.ico' sizes='any' />
       <body
         suppressHydrationWarning={true}
         className={`${montserrat.className}`}
       >
         <Navbar />
         {children}
+        <CookieConsent />
         <Footer />
       </body>
     </html>

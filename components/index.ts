@@ -1,29 +1,26 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Hamburger from "./Hamburger";
-import HeroSection from "./HeroSection";
-import CustomButton from "./CustomButton";
-import AboutSection from "./AboutSection";
-import MenuSection from "./MenuSection";
-import LocationSection from "./LocationSection";
-import ContactSection from "./ContactSection";
-import SocialMedia from "./SocialMedia";
-import BlogPost from "./BlogPost";
-import Maps from "./Maps";
-import LocationsList from "./LocationsList";
+// Layout components
+export * from "./layout";
 
-export {
-  Navbar,
-  Hamburger,
-  HeroSection,
-  CustomButton,
-  AboutSection,
-  MenuSection,
-  LocationSection,
-  ContactSection,
-  Footer,
-  SocialMedia,
-  BlogPost,
-  Maps,
-  LocationsList,
-};
+// Home page components
+export * from "./home";
+
+// Locations components
+export * from "./locations";
+
+// Menu components
+export * from "./menu";
+
+// Contact components
+export * from "./contact";
+
+// Blog components
+export * from "./blog";
+
+// Allergens components
+export * from "./allergens";
+
+// UI components
+export * from "./ui";
+
+// Utils components
+export * from "./utils";

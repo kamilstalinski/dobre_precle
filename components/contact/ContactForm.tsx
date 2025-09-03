@@ -1,15 +1,21 @@
+"use client";
+
 import { useForm, ValidationError } from "@formspree/react";
+import { useState } from "react";
+
 function ContactForm() {
   const [state, handleSubmit] = useForm("mnqkbdor");
+
   if (state.succeeded) {
     return <p className='text-h3  mt-8'>Wiadomość została wysłana!</p>;
   }
+
   return (
     <form
       onSubmit={handleSubmit}
       className='flex flex-col gap-3 mt-4 [&>*]:px-4 [&>*]:py-3 [&>*]:rounded-lg [&>*]:placeholder:text-[14px] [&>*]:placeholder:text-[#ED8F28] [&>*]:text-text-color [&>*]:text-[14px]'
     >
-      <input type='text' id='name' name='name' placeholder='Imię i nazwisko' />
+      <input type='text' id='name' name='name' placeholder='Imię' />
       <input
         type='tel'
         autoComplete='tel'
@@ -26,6 +32,11 @@ function ContactForm() {
         className='min-h-[150px]'
       ></textarea>
       <ValidationError prefix='Message' field='message' errors={state.errors} />
+      <label>
+        <input className='mr-2' type='checkbox' required />
+        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu nawiązania
+        kontaktu za pośrednictwem formularza internetowego lub telefonicznie.
+      </label>
       <button
         type='submit'
         disabled={state.submitting}

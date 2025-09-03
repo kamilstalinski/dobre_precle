@@ -14,6 +14,7 @@ export interface ButtonProps {
 
 export interface SocialMediaProps {
   navbarLinks: boolean;
+  footerLinks: boolean;
 }
 
 export interface MobileMenuProps extends HamburgerProps {
@@ -123,6 +124,7 @@ interface PostsResponse {
 }
 
 export interface PostTestProps {
+  fields: { title: any; paragraph: any; media: any; date: any };
   index: number;
   PostTitle: string;
   PostText: string;
@@ -148,3 +150,30 @@ export interface LocationProps {
   additional?: string;
   gallery: string[];
 }
+
+export type CoordinatesType = {
+  lat: number;
+  lon: number;
+};
+
+export type GalleryItemType = {
+  fields: {
+    title: string;
+    file: {
+      url: string;
+    };
+  };
+};
+
+export type LocationType = {
+  addressAdditional?: string;
+  additionalOpenHours?: string;
+  city: string;
+  coordinates: CoordinatesType;
+  gallery: GalleryItemType[];
+  id: string;
+  openHours: string;
+  phoneNumber: string;
+  postalCode: string;
+  street: string;
+};

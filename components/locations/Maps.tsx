@@ -1,21 +1,17 @@
 "use client";
 
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-import { locations, mapStyles } from "@/constants";
+import { mapStyles } from "@/constants";
 
-const Maps = () => {
+const Maps = ({ localizations }: any) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
   });
 
   if (!isLoaded) {
     return (
-      <div className='h-[40vh] w-full flex items-center justify-center'>
-        <div className='lds-facebook'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <div className='h-full w-full flex items-center justify-center'>
+        <span className='loader-2'></span>
       </div>
     );
   }
@@ -30,17 +26,20 @@ const Maps = () => {
         zoom={6.4}
         options={{ styles: mapStyles }}
       >
-        {locations.map((location) => (
+        {localizations.map((localization: any) => (
           <Marker
-            position={{ lat: location.lat, lng: location.lng }}
+            position={{
+              lat: localization.coordinates.lat,
+              lng: localization.coordinates.lon,
+            }}
             icon={{
               url: "/marker.svg",
               scaledSize: new window.google.maps.Size(80, 80),
             }}
             onClick={() =>
-              (window.location.href = `lokalizacje/${location.id}`)
+              (window.location.href = `lokalizacje/${localization.id}`)
             }
-            key={location.id}
+            key={localization.id}
           />
         ))}
       </GoogleMap>

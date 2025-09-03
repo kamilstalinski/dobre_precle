@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner";
+import { Banner } from "@/components";
 import Image from "next/image";
 
 const AboutUs = () => {
