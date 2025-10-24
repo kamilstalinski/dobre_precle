@@ -5,7 +5,7 @@ interface AllergenProductProps {
     title: string;
     image: string;
     pretzelType: string;
-    // Nowe pola z pojedynczego content modelu - tylko liczby
+    portionWeight: string;
     energyValuePer100?: string;
     energyValuePerPortion?: string;
     fatPer100?: string;
@@ -83,16 +83,8 @@ const AllergenProduct = ({ product }: AllergenProductProps) => {
           <img
             src={product.image}
             alt={product.title}
-            className='w-full h-full object-cover'
-            style={{
-              minHeight: "400px",
-            }}
+            className='w-full object-cover lg:object-contain'
           />
-          {/* <div className='absolute inset-0 bg-black bg-opacity-40 flex items-end'>
-            <div className='p-6 text-white'>
-              <h3 className='text-2xl font-bold mb-2'>{product.title}</h3>
-            </div>
-          </div> */}
         </div>
 
         {/* Right side - Table */}
@@ -108,7 +100,8 @@ const AllergenProduct = ({ product }: AllergenProductProps) => {
                     na 100 g
                   </th>
                   <th className='border border-gray-300 px-4 py-2 text-center font-semibold text-white'>
-                    na porcję (150 g)
+                    na porcję{" "}
+                    {product.portionWeight && `(${product.portionWeight} g)`}
                   </th>
                 </tr>
               </thead>

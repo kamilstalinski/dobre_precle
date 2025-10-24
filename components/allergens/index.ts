@@ -1,1 +1,1 @@
-export { default as AllergenProduct } from './AllergenProduct';
+export { default as AllergenProduct } from "./AllergenProduct";

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -23,28 +22,9 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ slides }: HeroSectionProps) => {
-  const [loading, setLoading] = useState(true);
-
-  // Simulate loading for smooth transition
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-      {loading ? (
-        <div className='h-full w-full absolute bg-[#FBE8CF] top-0 left-0 z-50 flex items-center justify-center overflow-hidden'>
-          <Image
-            src='/logo.svg'
-            alt='Dobre Precle logo'
-            width={300}
-            height={100}
-            priority
-            className='animate-bounce'
-          />
-        </div>
-      ) : slides.length > 0 ? (
+      {slides.length > 0 ? (
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={0}

@@ -8,6 +8,7 @@ interface AllergenProductType {
   title: string;
   image: string;
   pretzelType: string;
+  portionWeight: string;
   energyValuePer100: string;
   energyValuePerPortion: string;
   fatPer100: string;
@@ -68,6 +69,7 @@ const page = () => {
               ? `https:${fields.image.fields.file.url}`
               : "",
             pretzelType: normalizePretzelType(fields.pretzelType),
+            portionWeight: fields.portionWeight || "",
             energyValuePer100: fields.energyValuePer100 || "",
             energyValuePerPortion: fields.energyValuePerPortion || "",
             fatPer100: fields.fatPer100 || "",
