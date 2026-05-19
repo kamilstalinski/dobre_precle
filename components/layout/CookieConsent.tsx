@@ -1,7 +1,6 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCookie } from "@fortawesome/free-solid-svg-icons";
+import { Cookie } from "lucide-react";
 import { hasCookie, setCookie } from "cookies-next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -25,10 +24,7 @@ const CookieConsent = () => {
       <div className='fixed top-0 left-0 gap-8 flex md:flex-col items-center justify-between px-6 py-12 bg-text-color text-black w-full min-h-1/5'>
         <div>
           <h1 className='text-white text-[30px] mb-8 font-bold flex items-center md:justify-center'>
-            <FontAwesomeIcon
-              icon={faCookie}
-              className='mr-2 text-[#ED8F28] text-[50px]'
-            />
+            <Cookie className='mr-2 text-[#ED8F28] w-[50px] h-[50px]' />
             Korzystamy z ciasteczek
           </h1>
           <p className='text-white'>
