@@ -7,18 +7,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const CookieConsent = () => {
-  const [showConsent, setShowConsent] = useState(true);
+  const [hasConsent, setHasConsent] = useState(true);
 
   useEffect(() => {
-    setShowConsent(hasCookie("localConsent"));
+    setHasConsent(hasCookie("localConsent"));
   }, []);
 
   const acceptConsent = () => {
-    setShowConsent(true);
+    setHasConsent(true);
     setCookie("localConsent", true, {});
   };
 
-  if (showConsent) return null;
+  if (hasConsent) return null;
 
   return (
     <div className='fixed inset-0 bg-slate-400 bg-opacity-80 z-[5000]'>

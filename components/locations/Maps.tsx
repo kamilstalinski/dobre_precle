@@ -6,6 +6,7 @@ import {
   MarkerClustererF,
   useLoadScript,
 } from "@react-google-maps/api";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { mapStyles } from "@/constants";
 
@@ -41,17 +42,29 @@ const clusterStyles = [40, 48, 56, 64, 72].map((s, i) => {
 });
 
 const MARKER_SVG_RATIO = 121 / 182;
+const SPREAD_DURATION = 650;
+const SPREAD_DELAY = 320;
 
 const keyFor = (lat: number, lng: number) =>
   `${lat.toFixed(6)},${lng.toFixed(6)}`;
 
+type SpreadState = {
+  centerLat: number;
+  centerLng: number;
+  startTime: number;
+  ids: Set<string>;
+};
+
 const Maps = ({ localizations }: any) => {
+  const router = useRouter();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
   });
   const [isMobile, setIsMobile] = useState(false);
-  const [droppingKeys, setDroppingKeys] = useState<Set<string>>(new Set());
-  const dropTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [spread, setSpread] = useState<SpreadState | null>(null);
+  const [, setTick] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  const pendingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const check = () =>
@@ -61,9 +74,27 @@ const Maps = ({ localizations }: any) => {
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  useEffect(() => {
+    if (!spread) return;
+    const loop = () => {
+      const elapsed = performance.now() - spread.startTime;
+      if (elapsed >= SPREAD_DURATION) {
+        setSpread(null);
+        return;
+      }
+      setTick((t) => (t + 1) % 1_000_000);
+      rafRef.current = requestAnimationFrame(loop);
+    };
+    rafRef.current = requestAnimationFrame(loop);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [spread]);
+
   useEffect(
     () => () => {
-      if (dropTimeoutRef.current) clearTimeout(dropTimeoutRef.current);
+      if (pendingTimeoutRef.current) clearTimeout(pendingTimeoutRef.current);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     },
     []
   );
@@ -89,7 +120,9 @@ const Maps = ({ localizations }: any) => {
 
   const handleClusterClick = (cluster: any) => {
     const markers = cluster.getMarkers?.() ?? [];
-    const keys = new Set<string>(
+    const center = cluster.getCenter?.();
+    if (!center || markers.length === 0) return;
+    const ids = new Set<string>(
       markers
         .map((m: any) => {
           const p = m.getPosition?.();
@@ -97,11 +130,26 @@ const Maps = ({ localizations }: any) => {
         })
         .filter(Boolean) as string[]
     );
-    if (dropTimeoutRef.current) clearTimeout(dropTimeoutRef.current);
-    setDroppingKeys(keys);
-    dropTimeoutRef.current = setTimeout(() => {
-      setDroppingKeys(new Set());
-    }, 1600);
+    if (pendingTimeoutRef.current) clearTimeout(pendingTimeoutRef.current);
+    pendingTimeoutRef.current = setTimeout(() => {
+      setSpread({
+        centerLat: center.lat(),
+        centerLng: center.lng(),
+        startTime: performance.now(),
+        ids,
+      });
+    }, SPREAD_DELAY);
+  };
+
+  const positionFor = (lat: number, lng: number) => {
+    if (!spread || !spread.ids.has(keyFor(lat, lng))) return { lat, lng };
+    const elapsed = performance.now() - spread.startTime;
+    const t = Math.min(Math.max(elapsed / SPREAD_DURATION, 0), 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    return {
+      lat: spread.centerLat + (lat - spread.centerLat) * eased,
+      lng: spread.centerLng + (lng - spread.centerLng) * eased,
+    };
   };
 
   return (
@@ -134,17 +182,12 @@ const Maps = ({ localizations }: any) => {
               {localizations.map((localization: any) => {
                 const lat = localization.coordinates.lat;
                 const lng = localization.coordinates.lon;
-                const isDropping = droppingKeys.has(keyFor(lat, lng));
+                const pos = positionFor(lat, lng);
                 return (
                   <MarkerF
                     key={localization.id}
-                    position={{ lat, lng }}
+                    position={pos}
                     clusterer={clusterer}
-                    animation={
-                      isDropping
-                        ? window.google.maps.Animation.DROP
-                        : undefined
-                    }
                     icon={{
                       url: "/marker.svg",
                       size: new window.google.maps.Size(121, 182),
@@ -158,7 +201,7 @@ const Maps = ({ localizations }: any) => {
                       ),
                     }}
                     onClick={() =>
-                      (window.location.href = `lokalizacje/${localization.id}`)
+                      router.push(`/lokalizacje/${localization.id}`)
                     }
                   />
                 );
