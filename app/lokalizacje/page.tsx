@@ -27,7 +27,7 @@ const Locations = async () => {
 
   return (
     <section>
-      <div className='background-loc before:bg-[url("/miasto.png")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
+      <div className='background-loc before:bg-[url("/miasto.webp")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <div className='flex gap-2'>
           <div className='relative w-[100px] md:w-[30px] h-[200px] md:h-[60px]'>
             <Image src='/marker.svg' alt='marker' fill sizes='100px' priority />

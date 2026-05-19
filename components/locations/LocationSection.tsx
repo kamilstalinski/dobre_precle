@@ -11,7 +11,7 @@ const LocationSection = () => {
         >
           <Image
             className='top-[12%] -left-[6%] -rotate-[55deg]'
-            src='/precel_suchy.png'
+            src='/precel_suchy.webp'
             alt='lokalizacje'
             width={500}
             height={339}
@@ -50,7 +50,7 @@ const LocationSection = () => {
         <div className='h-full flex items-center absolute left-[100%]'>
           <Image
             className='top-[0%] -right-[6%] -rotate-[105deg]'
-            src='/precel_suchy.png'
+            src='/precel_suchy.webp'
             alt='lokalizacje'
             width={500}
             height={339}

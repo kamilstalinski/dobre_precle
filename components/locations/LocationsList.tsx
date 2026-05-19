@@ -5,7 +5,7 @@ import type { LocationType } from "@/types";
 const LocationsList = ({ localization }: { localization: LocationType }) => {
   const { id, city, street, gallery } = localization;
   const locationImage = gallery?.[0]?.fields?.file?.url;
-  const src = locationImage ? `https:${locationImage}` : "/Precle_placeholder.png";
+  const src = locationImage ? `https:${locationImage}` : "/Precle_placeholder.webp";
 
   return (
     <Link href={`/lokalizacje/${id}`}>

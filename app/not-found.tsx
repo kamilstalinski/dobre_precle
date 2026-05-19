@@ -34,7 +34,7 @@ export default function NotFound() {
         </div>
         <div className='absolute w-[700px] lg:w-[600px] md:w-[400px] h-[700px] md:w-[230px] top-0 left-0 -translate-x-[30%] -translate-y-[30%] md:-translate-y-[40%]'>
           <Image
-            src='/precel_suchy_1.png'
+            src='/precel_suchy_1.webp'
             alt='precle słodkie'
             fill
             sizes='(max-width: 768px) 400px, 700px'
@@ -43,7 +43,7 @@ export default function NotFound() {
         </div>
         <div className='absolute w-[700px] lg:w-[600px] md:w-[400px] h-[700px] top-0 right-0 translate-x-[30%] -translate-y-[30%] md:-translate-y-[40%]'>
           <Image
-            src='/precel_suchy_2.png'
+            src='/precel_suchy_2.webp'
             alt='precle słodkie'
             fill
             sizes='(max-width: 768px) 400px, 700px'

@@ -20,7 +20,7 @@ const Aktualnosci = async () => {
 
   return (
     <section>
-      <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
+      <Banner path='/precel_aktualnosci.webp' altName='Precle aktualności'>
         Aktualności
       </Banner>
       <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>

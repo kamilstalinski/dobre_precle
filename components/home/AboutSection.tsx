@@ -36,7 +36,7 @@ const AboutSection = () => {
             <div className='md:w-1/2'>
               <Image
                 className='z-[100] rounded-lg'
-                src='/precle_strona_glowna_1.png'
+                src='/precle_strona_glowna_1.webp'
                 alt='kanapka z serem'
                 width={370}
                 height={169}
@@ -45,7 +45,7 @@ const AboutSection = () => {
             <div className='md:w-1/2'>
               <Image
                 className='-translate-x-10 md:-translate-x-2 translate-y-10 md:translate-y-5 rounded-lg'
-                src='/precle_strona_glowna_2.png'
+                src='/precle_strona_glowna_2.webp'
                 alt='precle z pieca'
                 width={370}
                 height={169}
@@ -56,7 +56,7 @@ const AboutSection = () => {
         <div className='w-1/2 md:hidden'>
           <Image
             className='top-0 lg:top-0 right-0 xl:w-[50%]'
-            src='/precle_torebka.png'
+            src='/precle_torebka.webp'
             alt='precle z torebki'
             width={617}
             height={938}

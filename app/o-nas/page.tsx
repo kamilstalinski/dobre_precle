@@ -4,7 +4,7 @@ import Image from "next/image";
 const AboutUs = () => {
   return (
     <section>
-      <Banner path='/precel_o_nas.png' altName='Precle o nas'>
+      <Banner path='/precel_o_nas.webp' altName='Precle o nas'>
         O nas
       </Banner>
       <div className='container mx-auto px-[4%] py-[40px]'>
@@ -33,7 +33,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full flex items-center'>
             <Image
-              src='/precle_dobre_z_natury.png'
+              src='/precle_dobre_z_natury.webp'
               alt='precle'
               width={2000}
               height={1333}
@@ -58,7 +58,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/formowanie.png'
+              src='/formowanie.webp'
               alt='precle'
               width={2000}
               height={1333}
@@ -87,7 +87,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/precle_piec.png'
+              src='/precle_piec.webp'
               alt='precle'
               width={2000}
               height={1333}
@@ -118,7 +118,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/skladniki.png'
+              src='/skladniki.webp'
               alt='precle'
               width={2000}
               height={1333}
@@ -158,7 +158,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[680px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/autorskie_precle.png'
+              src='/autorskie_precle.webp'
               alt='precle'
               width={2000}
               height={1333}
@@ -185,7 +185,7 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/napoje.png'
+              src='/napoje.webp'
               alt='precle'
               width={2000}
               height={1333}

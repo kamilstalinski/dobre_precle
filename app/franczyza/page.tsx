@@ -8,7 +8,7 @@ const page = () => {
 
   return (
     <section>
-      <Banner path='/franczyza.png' altName='franczyza'>
+      <Banner path='/franczyza.webp' altName='franczyza'>
         Franczyza
       </Banner>
       <div className='container mx-auto px-[5%] my-[70px] md:my-[30px] text-center'>

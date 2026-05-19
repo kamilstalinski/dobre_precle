@@ -1,11 +1,11 @@
 import Image from "next/image";
-import precle from "../../public/precle_slodkie.png";
+import precle from "../../public/precle_slodkie.webp";
 import { Banner } from "@/components";
 
 const Menu = () => {
   return (
     <section>
-      <Banner path='/precle_menu_1.png' altName='Menu'>
+      <Banner path='/precle_menu_1.webp' altName='Menu'>
         Menu
       </Banner>
       <div className='container mx-auto px-[4%]'>
@@ -55,7 +55,7 @@ const Menu = () => {
         </div>
         <div className='absolute w-[400px] h-[600px] md:w-[270px] -top-[50px] right-0 translate-x-14 lg:translate-x-40 md:translate-x-32 sm:hidden'>
           <Image
-            src='/precel_suchy_3.png'
+            src='/precel_suchy_3.webp'
             alt='precle słodkie'
             fill
             sizes='(max-width: 768px) 270px, 400px'
@@ -65,7 +65,7 @@ const Menu = () => {
         </div>
         <div className='absolute w-[300px] h-[300px] md:w-[230px] -top-[30px] md:top-4 left-0 md:-left-32 -translate-x-14 lg:-translate-x-40 md:-translate-x-0 sm:hidden'>
           <Image
-            src='/precel_suchy_1.png'
+            src='/precel_suchy_1.webp'
             alt='precle słodkie'
             fill
             sizes='(max-width: 768px) 230px, 300px'
@@ -74,7 +74,7 @@ const Menu = () => {
         </div>
         <div className='absolute w-[300px] h-[300px] md:w-[230px] top-[180px] md:top-[160px] -left-6 md:-left-24 translate-x-14 lg:-translate-x-16 md:-translate-x-0 sm:hidden'>
           <Image
-            src='/precel_suchy_2.png'
+            src='/precel_suchy_2.webp'
             alt='precle słodkie'
             fill
             sizes='(max-width: 768px) 230px, 300px'
@@ -83,7 +83,7 @@ const Menu = () => {
           />
         </div>
       </div>
-      <div className='background background before:bg-[url("/precle_menu_2.png")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
+      <div className='background background before:bg-[url("/precle_menu_2.webp")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <h1 className='text-[60px] md:text-[30px] text-white text-center font-bold leading-tight container'>
           Wybierz swoje ulubione precle
           <br /> i ciesz się ich smakiem!

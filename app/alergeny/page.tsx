@@ -85,7 +85,7 @@ const Alergeny = async () => {
 
   return (
     <section>
-      <Banner path='/precel_aktualnosci.png' altName='Precle alergeny'>
+      <Banner path='/precel_aktualnosci.webp' altName='Precle alergeny'>
         Alergeny
       </Banner>
 
