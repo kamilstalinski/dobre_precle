@@ -62,9 +62,8 @@ const AboutUs = () => {
               alt='precle'
               width={2000}
               height={1333}
-              style={{
-                objectFit: "cover",
-              }}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
             />
           </div>
         </div>
@@ -92,9 +91,8 @@ const AboutUs = () => {
               alt='precle'
               width={2000}
               height={1333}
-              style={{
-                objectFit: "cover",
-              }}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
             />
           </div>
         </div>
@@ -124,9 +122,8 @@ const AboutUs = () => {
               alt='precle'
               width={2000}
               height={1333}
-              style={{
-                objectFit: "cover",
-              }}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
             />
           </div>
         </div>
@@ -165,9 +162,8 @@ const AboutUs = () => {
               alt='precle'
               width={2000}
               height={1333}
-              style={{
-                objectFit: "cover",
-              }}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
             />
           </div>
         </div>
@@ -193,9 +189,8 @@ const AboutUs = () => {
               alt='precle'
               width={2000}
               height={1333}
-              style={{
-                objectFit: "cover",
-              }}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
             />
           </div>
         </div>

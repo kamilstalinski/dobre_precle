@@ -58,7 +58,8 @@ const Menu = () => {
             src='/precel_suchy_3.png'
             alt='precle słodkie'
             fill
-            objectFit='contain'
+            sizes='(max-width: 768px) 270px, 400px'
+            className='object-contain'
             priority
           />
         </div>
@@ -67,7 +68,8 @@ const Menu = () => {
             src='/precel_suchy_1.png'
             alt='precle słodkie'
             fill
-            objectFit='contain'
+            sizes='(max-width: 768px) 230px, 300px'
+            className='object-contain'
           />
         </div>
         <div className='absolute w-[300px] h-[300px] md:w-[230px] top-[180px] md:top-[160px] -left-6 md:-left-24 translate-x-14 lg:-translate-x-16 md:-translate-x-0 sm:hidden'>
@@ -75,7 +77,8 @@ const Menu = () => {
             src='/precel_suchy_2.png'
             alt='precle słodkie'
             fill
-            objectFit='contain'
+            sizes='(max-width: 768px) 230px, 300px'
+            className='object-contain'
             priority
           />
         </div>

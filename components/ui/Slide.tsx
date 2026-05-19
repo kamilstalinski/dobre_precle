@@ -20,7 +20,8 @@ export default function Slide({ slide }: { slide: SlideFields }) {
             src={`https:${backgroundUrl}`}
             alt={slide.backgroundAltName || slide.upperTitle || "Slider image"}
             fill
-            style={{ zIndex: 9, objectFit: "cover" }}
+            sizes='100vw'
+            className='object-cover z-[9]'
             priority
           />
           <div className='container mx-auto px-4 h-full flex flex-col gap-12 items-center justify-center z-10'>

@@ -9,9 +9,8 @@ const AboutSection = () => {
           src='/precle_orange.svg'
           alt='precle'
           fill
-          style={{
-            objectFit: "contain",
-          }}
+          sizes='100vw'
+          className='object-contain'
         />
       </div>
       <div className='container mx-auto pl-[4%] pr-0 md:pr-2 text-text-color flex justify-between'>

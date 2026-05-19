@@ -12,9 +12,8 @@ const ContactSection = () => {
             src='/precel_white.svg'
             alt='precle'
             fill
-            style={{
-              objectFit: "contain",
-            }}
+            sizes='100vw'
+            className='object-contain'
           />
         </div>
         <div className='container mx-auto flex px-[4%] sm:flex-col sm:gap-8 relative z-20'>

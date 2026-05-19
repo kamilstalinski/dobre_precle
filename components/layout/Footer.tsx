@@ -8,7 +8,7 @@ const Footer = () => {
     <div className='pt-[30px] md:pt-[15px]'>
       <div className='container mx-auto px-[4%] text-text-color -mb-6'>
         <div className='relative w-[200px] h-[50px]'>
-          <Image src='/logo-footer.svg' alt='logo' fill />
+          <Image src='/logo-footer.svg' alt='logo' fill sizes='200px' />
         </div>
         <div className='flex flex-wrap gap-4 justify-between text-[14px] md:text-[12px] w-4/5'>
           <p>

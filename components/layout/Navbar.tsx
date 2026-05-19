@@ -76,7 +76,13 @@ const Navbar = () => {
             className='image__container relative w-[180px] lg:w-[160px] lg:translate-y-1 h-[83px] md:w-[122px] md:h-[48px] z-[99999]'
             href='/'
           >
-            <Image src='/logo.svg' alt='Dobre Precle logo' fill priority />
+            <Image
+              src='/logo.svg'
+              alt='Dobre Precle logo'
+              fill
+              sizes='180px'
+              priority
+            />
           </Link>
         </div>
         <div className='nav__links h-full'>

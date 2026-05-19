@@ -11,7 +11,9 @@ const Hamburger = ({ isActive, handleActive }: HamburgerProps) => {
       <Image
         src={isActive ? "/xmark-solid.svg" : "/bars-solid.svg"}
         alt='bars'
-        fill></Image>
+        fill
+        sizes='35px'
+      />
     </div>
   );
 };

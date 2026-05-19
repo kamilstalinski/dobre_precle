@@ -30,7 +30,7 @@ const Locations = async () => {
       <div className='background-loc before:bg-[url("/miasto.png")] w-full h-[27rem] md:h-[15rem] flex items-center justify-center'>
         <div className='flex gap-2'>
           <div className='relative w-[100px] md:w-[30px] h-[200px] md:h-[60px]'>
-            <Image src='/marker.svg' alt='marker' fill />
+            <Image src='/marker.svg' alt='marker' fill sizes='100px' priority />
           </div>
           <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight self-end'>
             Lokalizacje

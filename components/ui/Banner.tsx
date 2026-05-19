@@ -7,11 +7,9 @@ const Banner = ({ path, altName, children }: BannerProps) => {
       <Image
         src={path}
         alt={altName}
-        sizes='(max-width: 768px) 100vw,
-        (max-width: 1200px) 50vw,
-        33vw'
+        sizes='100vw'
         fill
-        style={{ zIndex: 9, objectFit: "cover" }}
+        className='object-cover z-[9]'
         priority
       />
       <h1 className='text-h1 lg:text-h1-tablet md:text-h1-mobile text-[#FBE8CF] text-center font-bold leading-tight z-20'>

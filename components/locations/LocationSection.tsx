@@ -15,6 +15,7 @@ const LocationSection = () => {
             alt='lokalizacje'
             width={500}
             height={339}
+            sizes='500px'
           />
         </div>
         <div className='container mx-auto h-full px-[4%] py-[100px] md:py-[50px] text-center flex flex-col justify-between items-center'>
@@ -53,6 +54,7 @@ const LocationSection = () => {
             alt='lokalizacje'
             width={500}
             height={339}
+            sizes='500px'
           />
         </div>
       </div>

@@ -30,13 +30,9 @@ const BlogPost = ({ post }: { post: PostFields }) => {
             src={`https:${imageUrl}`}
             alt=''
             fill
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            style={{
-              maxHeight: "450px",
-              objectFit: "cover",
-              objectPosition: "center",
-              borderRadius: "15px",
-            }}
+            sizes='(max-width: 768px) 100vw, 40vw'
+            className='object-cover object-center rounded-[15px]'
+            style={{ maxHeight: "450px" }}
           />
         </div>
       )}
