@@ -6,21 +6,15 @@ import {
   HeroSection,
 } from "@/components";
 import { getCachedEntries } from "@/lib/contentful/client";
+import type { SlideFields } from "@/types";
 
-interface SlideType {
-  title: string;
-  description?: string;
-  image: string;
-  link?: string;
-}
-
-async function fetchSlides(): Promise<SlideType[]> {
+async function fetchSlides(): Promise<SlideFields[]> {
   try {
-    const response = await getCachedEntries({
+    const response = await getCachedEntries<SlideFields>({
       content_type: "slider",
       include: 2,
     });
-    return response.items.map((item: any) => item.fields);
+    return response.items.map((item) => item.fields);
   } catch (err) {
     console.error("Error fetching slides:", err);
     return [];

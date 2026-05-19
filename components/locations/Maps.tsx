@@ -9,6 +9,12 @@ import {
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { mapStyles } from "@/constants";
+import type { LocationType } from "@/types";
+
+type Cluster = {
+  getMarkers?: () => google.maps.Marker[];
+  getCenter?: () => google.maps.LatLng | undefined;
+};
 
 const CLUSTER_PAD = 14;
 
@@ -55,7 +61,7 @@ type SpreadState = {
   ids: Set<string>;
 };
 
-const Maps = ({ localizations }: any) => {
+const Maps = ({ localizations }: { localizations: LocationType[] }) => {
   const router = useRouter();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
@@ -118,17 +124,17 @@ const Maps = ({ localizations }: any) => {
     map.fitBounds(bounds, 0);
   };
 
-  const handleClusterClick = (cluster: any) => {
+  const handleClusterClick = (cluster: Cluster) => {
     const markers = cluster.getMarkers?.() ?? [];
     const center = cluster.getCenter?.();
     if (!center || markers.length === 0) return;
     const ids = new Set<string>(
       markers
-        .map((m: any) => {
+        .map((m) => {
           const p = m.getPosition?.();
           return p ? keyFor(p.lat(), p.lng()) : null;
         })
-        .filter(Boolean) as string[]
+        .filter((k): k is string => k !== null)
     );
     if (pendingTimeoutRef.current) clearTimeout(pendingTimeoutRef.current);
     pendingTimeoutRef.current = setTimeout(() => {
@@ -179,7 +185,7 @@ const Maps = ({ localizations }: any) => {
         >
           {(clusterer) => (
             <>
-              {localizations.map((localization: any) => {
+              {localizations.map((localization) => {
                 const lat = localization.coordinates.lat;
                 const lng = localization.coordinates.lon;
                 const pos = positionFor(lat, lng);

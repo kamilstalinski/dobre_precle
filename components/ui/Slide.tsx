@@ -3,8 +3,9 @@
 import { SwiperSlide } from "swiper/react";
 import { CustomButton } from "@/components";
 import Image from "next/image";
+import type { SlideFields } from "@/types";
 
-export default function Slide({ slide }: any) {
+export default function Slide({ slide }: { slide: SlideFields }) {
   const backgroundUrl = slide.background?.fields?.file?.url;
 
   if (!backgroundUrl) {
@@ -31,8 +32,8 @@ export default function Slide({ slide }: any) {
               </span>
             </h1>
             <CustomButton
-              text={slide.buttonText}
-              link={slide.buttonUrl}
+              text={slide.buttonText ?? ""}
+              link={slide.buttonUrl ?? "#"}
               color='bg-[#ED8F28]'
             />
           </div>

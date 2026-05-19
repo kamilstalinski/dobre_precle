@@ -1,28 +1,11 @@
 import { AllergenProduct, Banner } from "@/components";
 import { getCachedEntries } from "@/lib/contentful/client";
+import type { AllergenProductType, ContentfulAsset } from "@/types";
 
-interface AllergenProductType {
-  title: string;
-  image: string;
-  pretzelType: string;
-  portionWeight: string;
-  energyValuePer100: string;
-  energyValuePerPortion: string;
-  fatPer100: string;
-  fatPerPortion: string;
-  saturatedFatPer100: string;
-  saturatedFatPerPortion: string;
-  carbohydratesPer100: string;
-  carbohydratesPerPortion: string;
-  sugarsPer100: string;
-  sugarsPerPortion: string;
-  fiberPer100: string;
-  fiberPerPortion: string;
-  proteinPer100: string;
-  proteinPerPortion: string;
-  saltPer100: string;
-  saltPerPortion: string;
-}
+type AllergenEntryFields = Omit<AllergenProductType, "image" | "pretzelType"> & {
+  image?: ContentfulAsset;
+  pretzelType?: string | string[];
+};
 
 const PDF_PATH = "/wykaz-alergenow-dobre-precle.pdf";
 
@@ -34,7 +17,9 @@ const CATEGORY_TITLES = {
 
 const CATEGORY_ORDER = ["klasyczne", "slone", "slodkie"] as const;
 
-const normalizePretzelType = (pretzelType: any): string => {
+const normalizePretzelType = (
+  pretzelType: string | string[] | undefined
+): string => {
   if (Array.isArray(pretzelType)) {
     const firstValue = pretzelType[0];
     if (firstValue === "Precle Klasyczne") return "klasyczne";
@@ -48,11 +33,11 @@ const normalizePretzelType = (pretzelType: any): string => {
 
 async function fetchAllergenProducts(): Promise<AllergenProductType[]> {
   try {
-    const response = await getCachedEntries({
+    const response = await getCachedEntries<AllergenEntryFields>({
       content_type: "11PNRJYH3Rz6RFkFgWH9EU",
       include: 2,
     });
-    return response.items.map((item: any) => {
+    return response.items.map((item) => {
       const fields = item.fields;
       return {
         title: fields.title || "",

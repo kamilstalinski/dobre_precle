@@ -1,21 +1,14 @@
 import { BlogPost, Banner } from "@/components";
 import { getCachedEntries } from "@/lib/contentful/client";
+import type { PostFields } from "@/types";
 
-interface PostType {
-  title: string;
-  content: string;
-  image?: string;
-  date: string;
-  slug: string;
-}
-
-async function fetchPosts(): Promise<PostType[]> {
+async function fetchPosts(): Promise<PostFields[]> {
   try {
-    const response = await getCachedEntries({
+    const response = await getCachedEntries<PostFields>({
       content_type: "post",
       include: 2,
     });
-    return response.items.map((item: any) => item.fields);
+    return response.items.map((item) => item.fields);
   } catch (err) {
     console.error("Error fetching posts:", err);
     return [];
@@ -75,7 +68,7 @@ const Aktualnosci = async () => {
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>
-        {posts.map((post: any, idx: number) => (
+        {posts.map((post, idx) => (
           <BlogPost key={idx} post={post} />
         ))}
       </div>

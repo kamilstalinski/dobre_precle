@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
-import { client } from "@/lib/contentful/client";
+import { getCachedEntries } from "@/lib/contentful/client";
+
+type LocationIdFields = { id?: string };
 
 const BASE_URL = "https://dobreprecle.pl";
 
@@ -22,13 +24,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let locationEntries: MetadataRoute.Sitemap = [];
   try {
-    const response = await client.getEntries({
+    const response = await getCachedEntries<LocationIdFields>({
       content_type: "localization",
       include: 0,
     });
     locationEntries = response.items
-      .map((item: any) => item.fields?.id)
-      .filter((id: unknown): id is string => typeof id === "string")
+      .map((item) => item.fields?.id)
+      .filter((id): id is string => typeof id === "string")
       .map((id) => ({
         url: `${BASE_URL}/lokalizacje/${id}`,
         lastModified: now,

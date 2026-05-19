@@ -156,14 +156,17 @@ export type CoordinatesType = {
   lon: number;
 };
 
-export type GalleryItemType = {
+export type ContentfulAsset = {
   fields: {
-    title: string;
+    title?: string;
     file: {
       url: string;
+      contentType?: string;
     };
   };
 };
+
+export type GalleryItemType = ContentfulAsset;
 
 export type LocationType = {
   addressAdditional?: string;
@@ -176,4 +179,50 @@ export type LocationType = {
   phoneNumber: string;
   postalCode: string;
   street: string;
+};
+
+export type SlideFields = {
+  upperTitle?: string;
+  lowerTitle?: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  background?: ContentfulAsset;
+  backgroundAltName?: string;
+};
+
+export type PostFields = {
+  title: string;
+  paragraph: string;
+  media?: ContentfulAsset;
+  date: string;
+};
+
+export type AllergenPretzelType = "klasyczne" | "slone" | "slodkie";
+
+export type AllergenProductType = {
+  title: string;
+  image: string;
+  pretzelType: AllergenPretzelType | string;
+  portionWeight: string;
+  energyValuePer100: string;
+  energyValuePerPortion: string;
+  fatPer100: string;
+  fatPerPortion: string;
+  saturatedFatPer100: string;
+  saturatedFatPerPortion: string;
+  carbohydratesPer100: string;
+  carbohydratesPerPortion: string;
+  sugarsPer100: string;
+  sugarsPerPortion: string;
+  fiberPer100: string;
+  fiberPerPortion: string;
+  proteinPer100: string;
+  proteinPerPortion: string;
+  saltPer100: string;
+  saltPerPortion: string;
+};
+
+export type ContentfulEntry<T> = {
+  sys: { id: string };
+  fields: T;
 };

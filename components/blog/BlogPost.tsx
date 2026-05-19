@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { BlogPostTestProps } from "@/types";
+import type { PostFields } from "@/types";
 
-const BlogPost = ({ post }: any) => {
+const BlogPost = ({ post }: { post: PostFields }) => {
   const { title, paragraph, media, date } = post;
   const imageUrl = media?.fields?.file?.url;
 

@@ -1,16 +1,17 @@
 import { Maps, LocationsList } from "@/components";
 import { getCachedEntries } from "@/lib/contentful/client";
 import Image from "next/image";
+import type { LocationType } from "@/types";
 
-async function fetchLocations() {
+async function fetchLocations(): Promise<LocationType[]> {
   try {
-    const response = await getCachedEntries({
+    const response = await getCachedEntries<LocationType>({
       content_type: "localization",
       include: 2,
     });
     return response.items
-      .map((item: any) => item.fields)
-      .sort((a: any, b: any) => {
+      .map((item) => item.fields)
+      .sort((a, b) => {
         if (a.city < b.city) return -1;
         if (a.city > b.city) return 1;
         return 0;
@@ -76,7 +77,7 @@ const Locations = async () => {
       </div>
       <div className='bg-text-color py-[50px]'>
         <div className='container mx-auto px-[4%] flex flex-wrap justify-between lg:justify-center gap-8'>
-          {localizations.map((localization: any, idx: number) => (
+          {localizations.map((localization, idx) => (
             <LocationsList localization={localization} key={idx} />
           ))}
         </div>

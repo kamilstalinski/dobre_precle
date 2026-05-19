@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { LocationType } from "@/types";
 
-const LocationsList = ({ localization }: any) => {
+const LocationsList = ({ localization }: { localization: LocationType }) => {
   const { id, city, street, gallery } = localization;
   const locationImage = gallery?.[0]?.fields?.file?.url;
   const src = locationImage ? `https:${locationImage}` : "/Precle_placeholder.png";
