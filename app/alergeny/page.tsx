@@ -35,7 +35,7 @@ async function fetchAllergenProducts(): Promise<AllergenProductType[]> {
   try {
     const response = await getCachedEntries<AllergenEntryFields>({
       content_type: "11PNRJYH3Rz6RFkFgWH9EU",
-      include: 2,
+      include: 1,
     });
     return response.items.map((item) => {
       const fields = item.fields;
@@ -132,8 +132,12 @@ const Alergeny = async () => {
                 {CATEGORY_TITLES[category]}
               </h2>
               <div className='space-y-8'>
-                {items.map((product, idx: number) => (
-                  <AllergenProduct key={idx} product={product} />
+                {items.map((product, idx) => (
+                  <AllergenProduct
+                    key={product.title || idx}
+                    product={product}
+                    priority={category === "klasyczne" && idx === 0}
+                  />
                 ))}
               </div>
             </div>

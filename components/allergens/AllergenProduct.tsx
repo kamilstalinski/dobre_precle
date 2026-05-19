@@ -1,93 +1,110 @@
-"use client";
+import Image from "next/image";
+import type { AllergenProductType } from "@/types";
 
 interface AllergenProductProps {
-  product: {
-    title: string;
-    image: string;
-    pretzelType: string;
-    portionWeight: string;
-    energyValuePer100?: string;
-    energyValuePerPortion?: string;
-    fatPer100?: string;
-    fatPerPortion?: string;
-    saturatedFatPer100?: string;
-    saturatedFatPerPortion?: string;
-    carbohydratesPer100?: string;
-    carbohydratesPerPortion?: string;
-    sugarsPer100?: string;
-    sugarsPerPortion?: string;
-    fiberPer100?: string;
-    fiberPerPortion?: string;
-    proteinPer100?: string;
-    proteinPerPortion?: string;
-    saltPer100?: string;
-    saltPerPortion?: string;
-  };
+  product: AllergenProductType;
+  priority?: boolean;
 }
 
-const AllergenProduct = ({ product }: AllergenProductProps) => {
-  // Stałe nazwy wierszy wartości odżywczych z informacją o wcięciu
-  const nutritionLabels = [
-    { label: "Wartość energetyczna", indent: false, unit: "" },
-    { label: "Tłuszcz", indent: false, unit: "g" },
-    { label: "w tym kwasy nasycone", indent: true, unit: "g" },
-    { label: "Węglowodany", indent: false, unit: "g" },
-    { label: "w tym cukry", indent: true, unit: "g" },
-    { label: "Błonnik", indent: false, unit: "g" },
-    { label: "Białko", indent: false, unit: "g" },
-    { label: "Sól", indent: false, unit: "g" },
-  ];
+const NUTRITION_ROWS = [
+  {
+    label: "Wartość energetyczna",
+    indent: false,
+    unit: "",
+    keyPer100: "energyValuePer100",
+    keyPerPortion: "energyValuePerPortion",
+    fallbackPer100: "339 kcal / 1 420 kJ",
+    fallbackPerPortion: "509 kcal / 2 130 kJ",
+  },
+  {
+    label: "Tłuszcz",
+    indent: false,
+    unit: "g",
+    keyPer100: "fatPer100",
+    keyPerPortion: "fatPerPortion",
+    fallbackPer100: "15,9",
+    fallbackPerPortion: "23,9",
+  },
+  {
+    label: "w tym kwasy nasycone",
+    indent: true,
+    unit: "g",
+    keyPer100: "saturatedFatPer100",
+    keyPerPortion: "saturatedFatPerPortion",
+    fallbackPer100: "5,7",
+    fallbackPerPortion: "8,6",
+  },
+  {
+    label: "Węglowodany",
+    indent: false,
+    unit: "g",
+    keyPer100: "carbohydratesPer100",
+    keyPerPortion: "carbohydratesPerPortion",
+    fallbackPer100: "45,7",
+    fallbackPerPortion: "68,6",
+  },
+  {
+    label: "w tym cukry",
+    indent: true,
+    unit: "g",
+    keyPer100: "sugarsPer100",
+    keyPerPortion: "sugarsPerPortion",
+    fallbackPer100: "2,87",
+    fallbackPerPortion: "4,31",
+  },
+  {
+    label: "Błonnik",
+    indent: false,
+    unit: "g",
+    keyPer100: "fiberPer100",
+    keyPerPortion: "fiberPerPortion",
+    fallbackPer100: "3,96",
+    fallbackPerPortion: "5,94",
+  },
+  {
+    label: "Białko",
+    indent: false,
+    unit: "g",
+    keyPer100: "proteinPer100",
+    keyPerPortion: "proteinPerPortion",
+    fallbackPer100: "9,58",
+    fallbackPerPortion: "14,37",
+  },
+  {
+    label: "Sól",
+    indent: false,
+    unit: "g",
+    keyPer100: "saltPer100",
+    keyPerPortion: "saltPerPortion",
+    fallbackPer100: "1,2",
+    fallbackPerPortion: "1,8",
+  },
+] as const;
 
-  // Mapowanie danych z produktu do wartości - tylko liczby
-  const nutritionData = [
-    {
-      per100: product.energyValuePer100 || "339 kcal / 1 420 kJ",
-      perPortion: product.energyValuePerPortion || "509 kcal / 2 130 kJ",
-    },
-    {
-      per100: product.fatPer100 || "15,9",
-      perPortion: product.fatPerPortion || "23,9",
-    },
-    {
-      per100: product.saturatedFatPer100 || "5,7",
-      perPortion: product.saturatedFatPerPortion || "8,6",
-    },
-    {
-      per100: product.carbohydratesPer100 || "45,7",
-      perPortion: product.carbohydratesPerPortion || "68,6",
-    },
-    {
-      per100: product.sugarsPer100 || "2,87",
-      perPortion: product.sugarsPerPortion || "4,31",
-    },
-    {
-      per100: product.fiberPer100 || "3,96",
-      perPortion: product.fiberPerPortion || "5,94",
-    },
-    {
-      per100: product.proteinPer100 || "9,58",
-      perPortion: product.proteinPerPortion || "14,37",
-    },
-    {
-      per100: product.saltPer100 || "1,2",
-      perPortion: product.saltPerPortion || "1,8",
-    },
-  ];
+const optimizedContentfulUrl = (url: string, width: number) => {
+  if (!url) return url;
+  // images.ctfassets.net obsługuje natywnie transformacje przez query params
+  return `${url}${url.includes("?") ? "&" : "?"}fm=webp&w=${width}&q=80`;
+};
 
+const AllergenProduct = ({ product, priority = false }: AllergenProductProps) => {
   return (
     <div className='bg-[#FBE8CF] rounded-lg shadow-lg overflow-hidden'>
-      {/* Desktop layout - domyślny */}
       <div className='flex flex-row lg:flex-col'>
-        {/* Left side - Image */}
-        <div className='w-1/2 lg:w-full relative'>
-          <img
-            src={product.image}
-            alt={product.title}
-            className='w-full object-cover lg:object-contain'
-          />
+        <div className='w-1/2 lg:w-full relative aspect-[4/3] lg:aspect-[16/9]'>
+          {product.image && (
+            <Image
+              src={optimizedContentfulUrl(product.image, 800)}
+              alt={product.title}
+              fill
+              sizes='(max-width: 1024px) 100vw, 50vw'
+              className='object-cover lg:object-contain'
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
+            />
+          )}
         </div>
 
-        {/* Right side - Table */}
         <div className='w-1/2 lg:w-full px-6 lg:px-0 flex flex-col justify-center'>
           <div className='overflow-x-auto'>
             <table className='w-full border-collapse border border-gray-300'>
@@ -106,32 +123,34 @@ const AllergenProduct = ({ product }: AllergenProductProps) => {
                 </tr>
               </thead>
               <tbody>
-                {nutritionLabels.map((item, index) => (
-                  <tr
-                    key={index}
-                    className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                  >
-                    <td className='border border-gray-300 px-4 py-2'>
-                      <span
-                        className={`block ${item.indent ? "ml-6" : ""} ${
-                          !item.indent ? "font-bold" : ""
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                    </td>
-                    <td className='border border-gray-300 px-4 py-2 text-center'>
-                      {index === 0
-                        ? nutritionData[index].per100
-                        : `${nutritionData[index].per100} ${item.unit}`}
-                    </td>
-                    <td className='border border-gray-300 px-4 py-2 text-center'>
-                      {index === 0
-                        ? nutritionData[index].perPortion
-                        : `${nutritionData[index].perPortion} ${item.unit}`}
-                    </td>
-                  </tr>
-                ))}
+                {NUTRITION_ROWS.map((row, index) => {
+                  const per100 =
+                    (product[row.keyPer100 as keyof AllergenProductType] as string) ||
+                    row.fallbackPer100;
+                  const perPortion =
+                    (product[row.keyPerPortion as keyof AllergenProductType] as string) ||
+                    row.fallbackPerPortion;
+                  return (
+                    <tr
+                      key={row.label}
+                      className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    >
+                      <td className='border border-gray-300 px-4 py-2'>
+                        <span
+                          className={`block ${row.indent ? "ml-6" : "font-bold"}`}
+                        >
+                          {row.label}
+                        </span>
+                      </td>
+                      <td className='border border-gray-300 px-4 py-2 text-center'>
+                        {index === 0 ? per100 : `${per100} ${row.unit}`}
+                      </td>
+                      <td className='border border-gray-300 px-4 py-2 text-center'>
+                        {index === 0 ? perPortion : `${perPortion} ${row.unit}`}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
