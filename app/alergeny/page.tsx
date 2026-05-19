@@ -121,7 +121,7 @@ const Alergeny = async () => {
           </a>
         </div>
       </div>
-      <div className='container mx-auto px-[4%]'>
+      {/* <div className='container mx-auto px-[4%]'>
         {CATEGORY_ORDER.map((category) => {
           const items = grouped[category];
           if (!items || items.length === 0) return null;
@@ -143,7 +143,7 @@ const Alergeny = async () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </section>
   );
 };
