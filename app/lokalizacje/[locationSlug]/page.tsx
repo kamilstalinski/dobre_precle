@@ -1,5 +1,5 @@
 import { LocationDetails } from "@/components";
-import { client } from "@/lib/contentful/client";
+import { getCachedEntries } from "@/lib/contentful/client";
 import { LocationType } from "@/types";
 
 const LocationDetailPage = async ({
@@ -11,7 +11,7 @@ const LocationDetailPage = async ({
   let error: string | null = null;
 
   try {
-    const response = await client.getEntries({
+    const response = await getCachedEntries({
       content_type: "localization",
       "fields.id": params.locationSlug,
       include: 2,

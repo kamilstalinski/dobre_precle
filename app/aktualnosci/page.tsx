@@ -1,8 +1,5 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { BlogPost, Banner, Loader } from "@/components";
-import { client } from "@/lib/contentful/client";
+import { BlogPost, Banner } from "@/components";
+import { getCachedEntries } from "@/lib/contentful/client";
 
 interface PostType {
   title: string;
@@ -12,75 +9,21 @@ interface PostType {
   slug: string;
 }
 
-const page = () => {
-  const [posts, setPosts] = useState<PostType[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const response = await client.getEntries({
-          content_type: "post",
-          include: 2,
-        });
-
-        const fetchedPosts = response.items.map((item: any) => item.fields);
-
-        setPosts(fetchedPosts);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-        console.error("Error fetching posts:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  // Show loading state
-  if (loading) {
-    return (
-      <section>
-        <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
-          Aktualności
-        </Banner>
-        <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
-          <div className='flex justify-center items-center min-h-[400px]'>
-            <div className='text-center'>
-              <Loader size='lg' className='mb-4' />
-              <p className='text-gray-600'>Ładowanie aktualności...</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
+async function fetchPosts(): Promise<PostType[]> {
+  try {
+    const response = await getCachedEntries({
+      content_type: "post",
+      include: 2,
+    });
+    return response.items.map((item: any) => item.fields);
+  } catch (err) {
+    console.error("Error fetching posts:", err);
+    return [];
   }
+}
 
-  // Show error state
-  if (error) {
-    return (
-      <section>
-        <Banner path='/precel_aktualnosci.png' altName='Precle aktualności'>
-          Aktualności
-        </Banner>
-        <div className='container mx-auto px-[5%] mt-[50px] mb-[80px] md:my-[30px]'>
-          <div className='flex justify-center items-center min-h-[400px]'>
-            <div className='text-center'>
-              <p className='text-red-600 mb-4'>
-                Błąd podczas ładowania aktualności
-              </p>
-              <p className='text-gray-600 text-sm'>{error}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+const Aktualnosci = async () => {
+  const posts = await fetchPosts();
 
   return (
     <section>
@@ -132,12 +75,12 @@ const page = () => {
         </p>
       </div>
       <div className='container mx-auto px-[5%]'>
-        {posts.map((post: any, idx: number) => {
-          return <BlogPost key={idx} post={post} />;
-        })}
+        {posts.map((post: any, idx: number) => (
+          <BlogPost key={idx} post={post} />
+        ))}
       </div>
     </section>
   );
 };
 
-export default page;
+export default Aktualnosci;
