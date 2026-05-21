@@ -117,11 +117,15 @@ const Maps = ({ localizations }: { localizations: LocationType[] }) => {
   const markerWidth = Math.round(markerHeight * MARKER_SVG_RATIO);
 
   const handleMapLoad = (map: google.maps.Map) => {
-    const bounds = new window.google.maps.LatLngBounds(
-      { lat: 49.0, lng: 14.12 },
-      { lat: 54.84, lng: 24.15 }
-    );
-    map.fitBounds(bounds, 0);
+    const fit = () => {
+      const bounds = new window.google.maps.LatLngBounds(
+        { lat: 48.8, lng: 13.8 },
+        { lat: 55.1, lng: 24.5 }
+      );
+      map.fitBounds(bounds, isMobile ? 12 : 24);
+    };
+    fit();
+    window.google.maps.event.addListenerOnce(map, "idle", fit);
   };
 
   const handleClusterClick = (cluster: Cluster) => {

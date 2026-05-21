@@ -76,7 +76,7 @@ const Locations = async () => {
         </div>
       </div>
       <div className='bg-text-color py-[50px]'>
-        <div className='container mx-auto px-[4%] flex flex-wrap justify-between lg:justify-center gap-8'>
+        <div className='container mx-auto px-[4%] grid grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8'>
           {localizations.map((localization, idx) => (
             <LocationsList localization={localization} key={idx} />
           ))}

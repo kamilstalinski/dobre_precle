@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Lato } from "next/font/google";
 import { Hamburger, SocialMedia } from "@/components";
 import { links } from "@/constants";
@@ -10,7 +11,13 @@ import MobileMenu from "./MobileMenu";
 
 const lato = Lato({ weight: ["400", "700"], subsets: ["latin"] });
 
+const isLinkActive = (pathname: string, href: string) => {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
+
 const Navbar = () => {
+  const pathname = usePathname();
   const [isActive, setIsActive] = useState<boolean>(false);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(true);
@@ -88,7 +95,12 @@ const Navbar = () => {
         <div className='nav__links h-full'>
           <ul className='h-full flex gap-8 lg:gap-4 items-end text-[#971C25] font-bold'>
             {links.map((link, i) => (
-              <li key={i} className='nav__link'>
+              <li
+                key={i}
+                className={`nav__link ${
+                  isLinkActive(pathname, link.href) ? "active" : ""
+                }`}
+              >
                 <Link href={link.href}>{link.title}</Link>
               </li>
             ))}

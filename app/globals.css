@@ -43,7 +43,8 @@ select:-webkit-autofill:focus {
   transition: all ease-in-out 0.2s;
 }
 
-.nav__link:hover::after {
+.nav__link:hover::after,
+.nav__link.active::after {
   opacity: 1;
   bottom: -4px;
 }
@@ -117,7 +118,7 @@ select:-webkit-autofill:focus {
 }
 
 .background-menu {
-  background-image: url("/hero-bg.jpg");
+  background-image: url("/hero-bg.webp");
   background-size: cover;
   background-position: center;
 }

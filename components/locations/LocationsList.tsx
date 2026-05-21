@@ -8,14 +8,14 @@ const LocationsList = ({ localization }: { localization: LocationType }) => {
   const src = locationImage ? `https:${locationImage}` : "/Precle_placeholder.webp";
 
   return (
-    <Link href={`/lokalizacje/${id}`}>
+    <Link href={`/lokalizacje/${id}`} className='block'>
       <div className='text-white cursor-pointer hover:scale-105 transition-all'>
-        <div className='w-[250px] h-[250px] relative border-2 border-white rounded-lg overflow-hidden mb-2'>
+        <div className='w-full aspect-square relative border-2 border-white rounded-lg overflow-hidden mb-2'>
           <Image
             src={src}
             alt={`${city} zdjęcie`}
             fill
-            sizes='250px'
+            sizes='(max-width: 767px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, 20vw'
             className='object-cover'
           />
         </div>

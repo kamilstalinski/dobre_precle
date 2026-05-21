@@ -1,10 +1,19 @@
+"use client";
+
 import { links } from "@/constants";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { SocialMedia } from "@/components";
 import { MobileMenuProps } from "@/types";
 import { useEffect } from "react";
 
+const isLinkActive = (pathname: string, href: string) => {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
+
 const MobileMenu = ({ menuRef, isActive, handleActive }: MobileMenuProps) => {
+  const pathname = usePathname();
   //   useEffect(() => {
   //     isActive
   //       ? (document.body.style.overflowY = "hidden")
@@ -25,7 +34,9 @@ const MobileMenu = ({ menuRef, isActive, handleActive }: MobileMenuProps) => {
               <li
                 onClick={handleActive}
                 key={i}
-                className='nav__link mt-2 text-[18px]'
+                className={`nav__link mt-2 text-[18px] w-fit ${
+                  isLinkActive(pathname, link.href) ? "active" : ""
+                }`}
               >
                 <Link href={link.href}>{link.title}</Link>
               </li>
