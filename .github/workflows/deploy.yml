@@ -43,6 +43,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
+          security: loose
           server-dir: /domains/dobreprecle.pl/public_html/dobreprecle_nextapp/
           local-dir: ./
           log-level: standard
