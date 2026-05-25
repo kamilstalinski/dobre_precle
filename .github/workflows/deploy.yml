@@ -46,9 +46,7 @@ jobs:
         run: |
           lftp <<EOF
           debug 3
-          set ssl:verify-certificate no
-          set ftp:ssl-force yes
-          set ftp:ssl-protect-data yes
+          set ftp:ssl-allow no
           set ftp:passive-mode on
           set net:max-retries 3
           set net:timeout 20
