@@ -23,7 +23,6 @@
     "autoprefixer": "10.4.14",
     "bcrypt": "^5.1.1",
     "contentful": "^10.15.0",
-    "contentful-management": "^11.54.4",
     "cookies-next": "^4.3.0",
     "dotenv": "^16.4.5",
     "eslint-config-next": "^14.2.8",
