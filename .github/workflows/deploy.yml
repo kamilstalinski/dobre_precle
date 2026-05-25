@@ -35,31 +35,41 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_REVALIDATE_SECRET: ${{ secrets.CONTENTFUL_REVALIDATE_SECRET }}
 
-      - name: Deploy via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          security: loose
-          server-dir: /domains/dobreprecle.pl/public_html/dobreprecle_nextapp/
-          local-dir: ./
-          log-level: standard
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/node_modules/**
-            **/.next/cache/**
-            **/.env
-            **/.env.*
-            **/scripts/**
-            **/*.log
-            **/.DS_Store
-            **/.vscode/**
-            **/.idea/**
-            **/coverage/**
-            **/.eslintcache
-            **/README.md
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y lftp
+
+      - name: Deploy via FTPS (lftp)
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp <<EOF
+          debug 3
+          set ssl:verify-certificate no
+          set ftp:ssl-force yes
+          set ftp:ssl-protect-data yes
+          set ftp:passive-mode on
+          set net:max-retries 3
+          set net:timeout 20
+          set net:reconnect-interval-base 5
+          set mirror:parallel-transfer-count 3
+          open -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST
+          mirror --reverse --verbose --only-newer \
+            --exclude-glob .git \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob node_modules/ \
+            --exclude-glob .next/cache/ \
+            --exclude-glob .env \
+            --exclude-glob '.env.*' \
+            --exclude-glob scripts/ \
+            --exclude-glob .DS_Store \
+            --exclude-glob .vscode/ \
+            --exclude-glob .idea/ \
+            --exclude-glob coverage/ \
+            --exclude-glob .eslintcache \
+            --exclude-glob README.md \
+            ./ /domains/dobreprecle.pl/public_html/dobreprecle_nextapp/
+          bye
+          EOF
