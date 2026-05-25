@@ -35,8 +35,31 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_REVALIDATE_SECRET: ${{ secrets.CONTENTFUL_REVALIDATE_SECRET }}
 
-      - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y lftp
+      - name: Install lftp and sshpass
+        run: sudo apt-get update -qq && sudo apt-get install -y lftp sshpass openssh-client
+
+      - name: Diag — DNS + TCP + SSH banner
+        env:
+          SFTP_HOST: ${{ secrets.FTP_HOST }}
+        run: |
+          echo "== DNS =="
+          getent hosts "$SFTP_HOST" || echo "DNS lookup failed"
+          echo "== TCP 22 =="
+          timeout 10 bash -c "</dev/tcp/$SFTP_HOST/22" && echo "port 22 reachable" || echo "port 22 unreachable"
+          echo "== SSH banner (5s) =="
+          timeout 5 bash -c "exec 3<>/dev/tcp/$SFTP_HOST/22; head -1 <&3" || echo "no banner"
+
+      - name: Diag — sftp auth test
+        env:
+          SFTP_HOST: ${{ secrets.FTP_HOST }}
+          SFTP_USER: ${{ secrets.FTP_USER }}
+          SFTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -T 10 -p 22 "$SFTP_HOST" >> ~/.ssh/known_hosts 2>&1 || true
+          echo "ls" | SSHPASS="$SFTP_PASS" sshpass -e \
+            sftp -v -oStrictHostKeyChecking=no -oBatchMode=no \
+            -P 22 "$SFTP_USER@$SFTP_HOST" 2>&1 | head -80 || true
 
       - name: Deploy via SFTP
         env:
@@ -45,6 +68,7 @@ jobs:
           SFTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
           lftp <<EOF
+          debug 4
           set sftp:auto-confirm yes
           set net:max-retries 3
           set net:timeout 15
