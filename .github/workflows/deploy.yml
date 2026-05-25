@@ -12,10 +12,11 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     env:
-      REMOTE_PATH: /home/gzlyzadnon/domains/dobreprecle.pl/public_html/dobreprecle_nextapp/
+      REMOTE_PATH: /home/gzlyzadnon/domains/dobreprecle.pl/public_html/dobreprecle_nextapp
+      APP_URL: https://dobreprecle.pl
 
     steps:
       - name: Checkout
@@ -27,7 +28,7 @@ jobs:
           node-version: "18.20.8"
           cache: "npm"
 
-      - name: Install dependencies
+      - name: Install dependencies (CI)
         run: npm ci
 
       - name: Build Next.js
@@ -51,6 +52,25 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
+      - name: Pre-deploy — app status
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "cloudlinux-selector get --json --interpreter nodejs --app-root $REMOTE_PATH" || true
+
+      - name: Stop app
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "cloudlinux-selector stop --json --interpreter nodejs --app-root $REMOTE_PATH" || \
+            echo "::warning ::Stop failed (app may already be stopped)"
+
       - name: Deploy via rsync
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
@@ -72,10 +92,10 @@ jobs:
             --exclude='coverage' \
             --exclude='.eslintcache' \
             --exclude='README.md' \
-            ./ "$SSH_USER@$SSH_HOST:$REMOTE_PATH"
+            --exclude='tmp/restart.txt' \
+            ./ "$SSH_USER@$SSH_HOST:$REMOTE_PATH/"
 
       - name: Install production dependencies on server
-        if: ${{ hashFiles('package-lock.json') != '' }}
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
@@ -86,3 +106,36 @@ jobs:
             cd $REMOTE_PATH &&
             npm ci --omit=dev
           "
+
+      - name: Start app
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "cloudlinux-selector start --json --interpreter nodejs --app-root $REMOTE_PATH"
+
+      - name: Touch passenger restart
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "mkdir -p $REMOTE_PATH/tmp && touch $REMOTE_PATH/tmp/restart.txt" || true
+
+      - name: Health check
+        run: |
+          echo "Waiting for app to become healthy..."
+          for i in {1..18}; do
+            STATUS=$(curl -ksS -o /dev/null -w "%{http_code}" "$APP_URL" || echo "000")
+            echo "Attempt $i: HTTP $STATUS"
+            if [ "$STATUS" = "200" ]; then
+              echo "::notice ::App is up (HTTP 200) on attempt $i"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error ::App did not return HTTP 200 within 90s"
+          exit 1
