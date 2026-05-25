@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
+    env:
+      REMOTE_PATH: /home/gzlyzadnon/domains/dobreprecle.pl/public_html/dobreprecle_nextapp/
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,39 +38,51 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_REVALIDATE_SECRET: ${{ secrets.CONTENTFUL_REVALIDATE_SECRET }}
 
-      - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y lftp
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Deploy via FTPS (lftp)
+      - name: Add server to known_hosts
         env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
-          lftp <<EOF
-          debug 3
-          set ftp:ssl-allow no
-          set ftp:passive-mode on
-          set net:max-retries 3
-          set net:timeout 20
-          set net:reconnect-interval-base 5
-          set mirror:parallel-transfer-count 3
-          open -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST
-          mirror --reverse --verbose --only-newer \
-            --exclude-glob .git \
-            --exclude-glob .git/ \
-            --exclude-glob .github/ \
-            --exclude-glob node_modules/ \
-            --exclude-glob .next/cache/ \
-            --exclude-glob .env \
-            --exclude-glob '.env.*' \
-            --exclude-glob scripts/ \
-            --exclude-glob .DS_Store \
-            --exclude-glob .vscode/ \
-            --exclude-glob .idea/ \
-            --exclude-glob coverage/ \
-            --exclude-glob .eslintcache \
-            --exclude-glob README.md \
-            ./ /domains/dobreprecle.pl/public_html/dobreprecle_nextapp/
-          bye
-          EOF
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          rsync -avz --delete \
+            -e "ssh -p $SSH_PORT" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='.next/cache' \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='scripts' \
+            --exclude='.DS_Store' \
+            --exclude='.vscode' \
+            --exclude='.idea' \
+            --exclude='coverage' \
+            --exclude='.eslintcache' \
+            --exclude='README.md' \
+            ./ "$SSH_USER@$SSH_HOST:$REMOTE_PATH"
+
+      - name: Install production dependencies on server
+        if: ${{ hashFiles('package-lock.json') != '' }}
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "
+            source /home/gzlyzadnon/nodevenv/domains/dobreprecle.pl/public_html/dobreprecle_nextapp/18/bin/activate &&
+            cd $REMOTE_PATH &&
+            npm ci --omit=dev
+          "
