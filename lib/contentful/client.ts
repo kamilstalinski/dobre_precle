@@ -22,7 +22,7 @@ const fetchEntries = unstable_cache(
     ) as CachedEntries<unknown>;
   },
   ["contentful-entries"],
-  { revalidate: 3600, tags: ["contentful"] }
+  { revalidate: 60, tags: ["contentful"] }
 );
 
 export async function getCachedEntries<T = unknown>(
