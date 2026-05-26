@@ -26,6 +26,33 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
+/* Scroll reveal (zastępuje AOS) */
+[data-aos] {
+  opacity: 0;
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+  will-change: opacity, transform;
+}
+[data-aos="fade-up"]    { transform: translate3d(0, 24px, 0); }
+[data-aos="fade-down"]  { transform: translate3d(0, -24px, 0); }
+[data-aos="fade-left"]  { transform: translate3d(24px, 0, 0); }
+[data-aos="fade-right"] { transform: translate3d(-24px, 0, 0); }
+[data-aos="fade"]       { transform: none; }
+
+[data-aos][data-aos-animate="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* NAVBAR */
 .nav__link {
   position: relative;
@@ -123,7 +150,7 @@ select:-webkit-autofill:focus {
   background-position: center;
 }
 .background-location {
-  background-image: url("/location-bg.svg");
+  background-image: url("/location-bg.webp");
   background-size: cover;
   background-position: center;
 }

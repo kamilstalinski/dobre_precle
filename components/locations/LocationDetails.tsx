@@ -3,8 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { SingleLocationMap } from "@/components";
+import dynamic from "next/dynamic";
 import { LocationType } from "@/types";
+
+const SingleLocationMap = dynamic(() => import("./SingleLocationMap"), {
+  ssr: false,
+  loading: () => (
+    <div className='h-full w-full flex items-center justify-center'>
+      <span className='loader-2'></span>
+    </div>
+  ),
+});
 
 type LocationDetailsProps = {
   location: LocationType;

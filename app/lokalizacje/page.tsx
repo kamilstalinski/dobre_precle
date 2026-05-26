@@ -1,4 +1,5 @@
-import { Maps, LocationsList } from "@/components";
+import { LocationsList } from "@/components";
+import MapsClient from "@/components/locations/MapsClient";
 import { getCachedEntries } from "@/lib/contentful/client";
 import Image from "next/image";
 import type { LocationType } from "@/types";
@@ -72,7 +73,7 @@ const Locations = async () => {
           </p>
         </div>
         <div className='h-[600px] md:h-[350px]'>
-          <Maps localizations={localizations} />
+          <MapsClient localizations={localizations} />
         </div>
       </div>
       <div className='bg-text-color py-[50px]'>
