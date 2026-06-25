@@ -4,7 +4,7 @@ import Image from "next/image";
 const AboutUs = () => {
   return (
     <section>
-      <Banner path='/precel_o_nas.webp' altName='Precle o nas'>
+      <Banner path='/o_nas.webp' altName='Precle o nas'>
         O nas
       </Banner>
       <div className='container mx-auto px-[4%] py-[40px]'>
@@ -118,8 +118,8 @@ const AboutUs = () => {
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
-              src='/skladniki.webp'
-              alt='precle'
+              src='/o_nas.webp'
+              alt='składniki'
               width={2000}
               height={1333}
               sizes='(max-width: 768px) 100vw, 50vw'
@@ -186,7 +186,56 @@ const AboutUs = () => {
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
             <Image
               src='/napoje.webp'
-              alt='precle'
+              alt='napoje'
+              width={2000}
+              height={1333}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
+            />
+          </div>
+        </div>
+        <div
+          className='flex gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'
+        >
+          <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
+            <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
+              PYSZNA KAWA
+            </h2>
+            <p className='text-p md:text-p-mobile'>
+              Do Dobrych Precli pasuje coś naprawdę dobrego do picia - dlatego w wybranych lokalach znajdziesz u nas aromatyczną kawę z palarni specialty.
+              To kawa dla tych, którzy lubią dobry smak, głęboki aromat i chwilę przyjemnej przerwy w ciągu dnia. Świetnie sprawdzi się do słodkiego precla, słonej przekąski albo po prostu wtedy, gdy masz ochotę na coś ciepłego i pobudzającego.
+              Aktualnie naszą kawę znajdziesz w dwóch lokalach: w Krakowie przy ul. Grodzkiej 11 oraz w Bydgoszczy. Planujemy jednak rozszerzać ofertę kawową także o kolejne lokalizacje.
+            </p>
+          </div>
+          <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
+            <Image
+              src='/kawa.webp'
+              alt='kawa'
+              width={2000}
+              height={1333}
+              sizes='(max-width: 768px) 100vw, 50vw'
+              className='object-cover w-full h-auto'
+            />
+          </div>
+        </div>
+        <div
+          className='flex flex-row-reverse gap-10 md:flex-col mt-12 items-center'
+          data-aos='fade-up'
+        >
+          <div className='w-1/2 h-full md:w-full px-12 md:px-0'>
+            <h2 className='text-text-color text-h3 md:text-h3-mobile font-bold mb-6'>
+              ŚWIEŻO WYCISKANE SOKI
+            </h2>
+            <p className='text-p md:text-p-mobile'>
+              W lokalu Dobre Precle na dworcu PKP Kraków Główny czekają na Ciebie świeżo wyciskane soki przygotowywane w 100% z pomarańczy.
+              To pyszny, naturalny i orzeźwiający dodatek do precla - idealny przed podróżą, po drodze do pracy albo na szybką przerwę w ciągu dnia.
+            </p>
+          </div>
+          <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>
+            <Image
+              src='/sok.webp'
+              alt='sok'
               width={2000}
               height={1333}
               sizes='(max-width: 768px) 100vw, 50vw'

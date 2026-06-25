@@ -36,7 +36,7 @@ const AboutSection = () => {
             <div className='md:w-1/2'>
               <Image
                 className='z-[100] rounded-lg'
-                src='/precle_strona_glowna_1.webp'
+                src='/precle_strona_glowna-about.webp'
                 alt='kanapka z serem'
                 width={370}
                 height={169}
