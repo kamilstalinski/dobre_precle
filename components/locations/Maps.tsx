@@ -180,7 +180,7 @@ const Maps = ({ localizations }: { localizations: LocationType[] }) => {
           onClick={handleClusterClick}
           options={{
             styles: clusterStyles,
-            gridSize: 60,
+            gridSize: 40,
             minimumClusterSize: 2,
             maxZoom: 11,
             averageCenter: true,
