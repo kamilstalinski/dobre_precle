@@ -205,7 +205,7 @@ const AboutUs = () => {
             <p className='text-p md:text-p-mobile'>
               Do Dobrych Precli pasuje coś naprawdę dobrego do picia - dlatego w wybranych lokalach znajdziesz u nas aromatyczną kawę z palarni specialty.
               To kawa dla tych, którzy lubią dobry smak, głęboki aromat i chwilę przyjemnej przerwy w ciągu dnia. Świetnie sprawdzi się do słodkiego precla, słonej przekąski albo po prostu wtedy, gdy masz ochotę na coś ciepłego i pobudzającego.
-              Aktualnie naszą kawę znajdziesz w dwóch lokalach: w Krakowie przy ul. Grodzkiej 11 oraz w Bydgoszczy. Planujemy jednak rozszerzać ofertę kawową także o kolejne lokalizacje.
+              Aktualnie naszą kawę znajdziesz w dwóch lokalach: w Krakowie przy ul. Grodzkiej 11 oraz w Bydgoszczy na dworcu PKP przy ul. Zygmunta Augusta 7. Planujemy jednak rozszerzać ofertę kawową także o kolejne lokalizacje.
             </p>
           </div>
           <div className='w-1/2 md:w-full max-h-[450px] md:max-h-[300px] flex rounded-xl overflow-hidden'>

@@ -11,18 +11,34 @@ const Footer = () => {
           <Image src='/logo-footer.svg' alt='logo' fill sizes='200px' />
         </div>
         <div className='flex flex-wrap gap-4 justify-between text-[14px] md:text-[12px] w-4/5'>
-          <p>
-            DP 1 sp. z o. o.
-            <br />
-            ul.Szlachecka 24,
-            <br />
-            32-080 Brzezie
-            <br />
-            <br />
-            NIP: 5130282896
-            <br />
-            KRS: 0001009998
-          </p>
+          <div className='flex flex-col gap-4'>
+            <p className='border-b border-text-color pb-4'>
+              DP 1 sp. z o. o.
+              <br />
+              ul.Szlachecka 24,
+              <br />
+              32-080 Brzezie
+              <br />
+              <br />
+              NIP: 5130282896
+              <br />
+              KRS: 0001009998
+            </p>
+            <p>
+              DP Finanse sp. z o. o.
+              <br />
+              Finanse, Księgowość i Kadry
+              <br />
+              ul.Szlachecka 24,
+              <br />
+              32-080 Brzezie
+              <br />
+              <br />
+              NIP: 5130297432
+              <br />
+              KRS: 0001129427
+            </p>
+          </div>
           <div className='h-full'>
             <ul>
               {links.map((link, i) => (

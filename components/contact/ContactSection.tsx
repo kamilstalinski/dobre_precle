@@ -33,7 +33,8 @@ const ContactSection = () => {
                 biuro@dobreprecle.pl
               </h3>
             </div>
-            <p className='text-p md:text-p-mobile mt-5'>
+            <div className='flex flex gap-8 mt-6'>
+            <p>
               DP 1 sp. z o. o.
               <br />
               ul.Szlachecka 24,
@@ -45,6 +46,21 @@ const ContactSection = () => {
               <br />
               KRS: 0001009998
             </p>
+            <p>
+              DP Finanse sp. z o. o.
+              <br />
+              Finanse, Księgowość i Kadry
+              <br />
+              ul.Szlachecka 24,
+              <br />
+              32-080 Brzezie
+              <br />
+              <br />
+              NIP: 5130297432
+              <br />
+              KRS: 0001129427
+            </p>
+          </div>
           </div>
           <div className='w-1/2 sm:w-full'>
             <p className='text-p md:text-p-mobile'>
