@@ -95,6 +95,15 @@ jobs:
             --exclude='stdout.log' \
             ./ "$SSH_USER@$SSH_HOST:$REMOTE_PATH/"
 
+      - name: Remove stale node_modules (allow CloudLinux symlink)
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "rm -rf $REMOTE_PATH/node_modules"
+
       - name: Install production dependencies on server
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
