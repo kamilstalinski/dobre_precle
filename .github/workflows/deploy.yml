@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "18.20.8"
           cache: "npm"
@@ -38,7 +38,7 @@ jobs:
           CONTENTFUL_REVALIDATE_SECRET: ${{ secrets.CONTENTFUL_REVALIDATE_SECRET }}
 
       - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -101,10 +101,10 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
-          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "
+          ssh -o ServerAliveInterval=15 -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "
             source /home/gzlyzadnon/nodevenv/domains/dobreprecle.pl/public_html/dobreprecle_nextapp/18/bin/activate &&
             cd $REMOTE_PATH &&
-            npm ci --omit=dev
+            npm install --omit=dev --prefer-offline
           "
 
       - name: Start app
